@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MyActionBarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">@color/colorPrimaryText</item>
+        <item name="android:title">@string/haskell</item>
+    </style>
+
+    <style name="Console">
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
+    <style name="Console.TypeFont">
+        <item name="android:textColor">#FF0000</item>
+    </style>
+
+    <style name="Console.Button">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+</resources>

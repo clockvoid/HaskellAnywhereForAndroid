@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    tools:context="com.lucciola.haskellanywhereforandroid.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/MyActionBarTheme"
+        app:popupTheme="@style/MyActionBarTheme" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:elevation="1dp"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/monitor"
+            style="@style/Console"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="top"
+            android:isScrollContainer="true"
+            android:padding="16dp"
+            android:text="@string/test_text"
+            android:textSize="20sp" />
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:elevation="10dp"
+        android:fitsSystemWindows="true"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/down"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/button_background"
+            android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
+            android:tint="@color/colorPrimaryText" />
+
+        <ImageButton
+            android:id="@+id/up"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/button_background"
+            android:src="@drawable/ic_keyboard_arrow_up_black_24dp"
+            android:tint="@color/colorPrimaryText" />
+
+        <EditText
+            android:id="@+id/input"
+            style="@style/Console"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_weight="8"
+            android:background="@color/colorPrimaryText"
+            android:maxLines="5"
+            android:minLines="2" />
+
+        <ImageButton
+            android:id="@+id/send"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/button_background"
+            android:src="@drawable/ic_send_black_24dp"
+            android:tint="@color/colorPrimaryText" />
+
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="10dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@color/colorPrimaryLight"
+            android:fitsSystemWindows="true"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="=" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="$" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="." />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="," />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="'" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="'" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="&quot;" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="`" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="(" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text=")" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="[" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="]" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="&lt;" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="-" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="&gt;" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="+" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="*" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="/" />
+
+            <Button
+                android:id="@+id/symbol_buttons"
+                style="@style/Console"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/key_button_background"
+                android:text="\" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Haskell Anywhere for Android</string>
+    <string name="haskell">Haskell</string>
+    <string name="action_settings">Action Settings</string>
+    <string name="action_favorite">Action Favorite</string>
+    <string name="action_save">save as...</string>
+    <string name="send">send</string>
+    <string name="test_text">
+       hello, new world!!!
+    </string>
+</resources>
