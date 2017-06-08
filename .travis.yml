@@ -5,6 +5,7 @@ android:
   - tools
   - platform-tools
   - build-tools-25.0.2
+  - tools
   - android-25
   
 jdk:
