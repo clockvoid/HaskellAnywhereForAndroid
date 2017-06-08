@@ -1,13 +1,12 @@
 language: android
 
-sudo: required
-
 android:
-  components:
+sudo: false
+
+components:
   - tools
   - platform-tools
   - build-tools-25.0.0
-  - tools
   - android-23
   - extra-google-m2repository
   - extra-android-m2repository
