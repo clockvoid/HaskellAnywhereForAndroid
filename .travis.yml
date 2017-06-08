@@ -9,6 +9,7 @@ android:
   - build-tools-25.0.0
   - tools
   - android-23
+  - extra-google-m2repository
   - extra-android-m2repository
   
 jdk:
@@ -16,6 +17,10 @@ jdk:
 
 install:
   - android-update-sdk --accept-licenses='android-sdk-license-.+' --components=tools
+  - android-update-sdk --accept-licenses='android-sdk-license-.+' --components=build-tools-25.0.0
+  - android-update-sdk --accept-licenses='android-sdk-license-.+' --components=android-23
+  - android-update-sdk --accept-licenses='android-sdk-license-.+' --components=extra-android-m2repository
+  - android-update-sdk --accept-licenses='android-sdk-license-.+' --components=extra-google-m2repository
 
 script:
   - ./gradlew clean build
