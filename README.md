@@ -1,4 +1,6 @@
 # HaskellAnywhereForAndroid
+[![Build Status](https://travis-ci.org/clockvoid/HaskellAnywhereForAndroid.svg?branch=master)](https://travis-ci.org/clockvoid/HaskellAnywhereForAndroid)
+
 A Simple Haskell interpretor for Android
 
 ![Imgur](http://i.imgur.com/b89UNZsm.png "Screenshot")
