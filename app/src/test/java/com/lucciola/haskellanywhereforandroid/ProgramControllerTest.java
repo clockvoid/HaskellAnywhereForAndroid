@@ -14,9 +14,10 @@ public class ProgramControllerTest {
         ProgramCollector collector = new ProgramCollector();
         collector.input("test = \"test\"");
         collector.input("hello = putStrLn \"hello, new world!!!\"");
+        collector.input("ifState n m = n == m");
 
         String list = collector.getProgramList();
 
-        assertEquals("test = \"test\"\nhello = putStrLn \"hello, new world!!!\"", list);
+        assertEquals("test = \"test\"\nifState n m = n == m\nhello = putStrLn \"hello, new world!!!\"\n", list);
     }
 }
