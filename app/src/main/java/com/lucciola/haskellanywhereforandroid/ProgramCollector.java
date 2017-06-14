@@ -39,7 +39,7 @@ public class ProgramCollector {
         String tmp = "";
         Set<String> functionNameSet = this.programList.keySet();
         for (String functionName : functionNameSet) {
-            tmp += functionName + programList.get(functionName) + "\n";
+            tmp += functionName + " = " + programList.get(functionName) + "\n";
         }
         return tmp;
     }
@@ -48,7 +48,7 @@ public class ProgramCollector {
         //TODO: to program when matchMainFunction and match command.
         if (this.matchMainFunction.matcher(arg0).matches()) {
         } else if (this.matchFunction.matcher(arg0).matches()) {
-            String[] tmp = arg0.split(matchFunction.pattern());
+            String[] tmp = arg0.split(" = ");
             this.programList.put(tmp[0], tmp[1]);
         }
     }
