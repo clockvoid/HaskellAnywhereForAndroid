@@ -9,13 +9,11 @@ import android.widget.TextView;
 
 public class Model {
 
-    private ProgramCollector collector;
     private EditText input;
     private TextView monitor;
     private String monitorString;
 
-    public Model(ProgramCollector arg0, EditText arg1, TextView arg2) {
-        this.collector = arg0;
+    public Model(EditText arg1, TextView arg2) {
         this.input = arg1;
         this.monitor = arg2;
         this.monitorString = R.string.app_name + " " + R.string.version;
@@ -30,7 +28,7 @@ public class Model {
         setMonitorText(this.monitorString);
     }
 
-    public void clearMontor() {
+    public void clearMonitor() {
         this.monitorString = "";
         setMonitorText(this.monitorString);
     }
@@ -45,16 +43,6 @@ public class Model {
 
     public void addInputText(String arg0){
         setInputText(getInputText() + arg0);
-    }
-
-    //TODO: up and down in Model
-
-    public void upInputText() {
-
-    }
-
-    public void downInputText() {
-
     }
 
 }

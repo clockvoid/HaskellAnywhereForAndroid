@@ -1,7 +1,7 @@
 package com.lucciola.haskellanywhereforandroid;
 
 import org.junit.Test;
-import core.HaskellAnywhere;
+import com.lucciola.haskell.HaskellAnywhere;
 
 import static org.junit.Assert.*;
 

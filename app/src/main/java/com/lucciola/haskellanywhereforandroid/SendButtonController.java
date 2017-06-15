@@ -9,9 +9,11 @@ import android.view.View;
 public class SendButtonController extends Controller {
 
     private Model model;
+    private ProgramManager manager;
 
-    public SendButtonController(Model arg0) {
+    public SendButtonController(Model arg0, ProgramManager arg1) {
         this.model = arg0;
+        this.manager = arg1;
     }
 
     @Override

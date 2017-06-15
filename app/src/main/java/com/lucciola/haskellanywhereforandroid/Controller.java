@@ -9,5 +9,6 @@ import android.view.View.OnClickListener;
 public abstract class Controller implements OnClickListener {
 
     private Model model;
+    private ProgramManager manager;
 
 }
