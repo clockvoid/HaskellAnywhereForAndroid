@@ -18,6 +18,7 @@ public class SendButtonController extends Controller {
 
     @Override
     public void onClick(View v) {
+       model.addMonitorText(manager.input(model.getInputText()));
     }
 
 }

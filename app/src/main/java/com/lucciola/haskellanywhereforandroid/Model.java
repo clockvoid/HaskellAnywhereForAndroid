@@ -16,7 +16,7 @@ public class Model {
     public Model(EditText arg1, TextView arg2) {
         this.input = arg1;
         this.monitor = arg2;
-        this.monitorString = R.string.app_name + " " + R.string.version;
+        this.monitorString = this.monitor.getText().toString();
     }
 
     private void setMonitorText(String arg0) {
