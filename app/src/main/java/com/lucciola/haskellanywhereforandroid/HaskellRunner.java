@@ -17,7 +17,6 @@ public class HaskellRunner extends AsyncTask<String, String, String> {
         super();
         this.result = arg0;
         this.haskell = new Haskell();
-        this.dialog = new ProgressDialog();
     }
 
     @Override
