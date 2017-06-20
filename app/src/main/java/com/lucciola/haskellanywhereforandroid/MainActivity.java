@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         model = new Model(input, monitor);
         manager = new ProgramManager();
-        sendButtonController = new SendButtonController(model, manager);
+        sendButtonController = new SendButtonController(model, this, manager);
 
         sendButton.setOnClickListener(sendButtonController);
     }

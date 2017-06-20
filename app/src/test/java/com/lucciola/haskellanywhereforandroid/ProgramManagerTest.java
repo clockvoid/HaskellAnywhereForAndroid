@@ -17,18 +17,15 @@ public class ProgramManagerTest {
         manager.input("let ifState n m = n == m"); // function has input values
         manager.input("let hello = print \"hello, new world!!!\""); // rewrite function
 
-        String list = manager.input(":list");
-        String clear = manager.input(":c");
+        String list = manager.input(":list").getDocumentString();
+        String clear = manager.input(":c").getDocumentString();
 
-        assertEquals("> :list\ntest = \"test\"\nifState n m = n == m\nhello = print \"hello, new world!!!\"\n", list);
-        assertEquals("> :c\nclear\n", clear);
+        assertEquals("test = \"test\"\nifState n m = n == m\nhello = print \"hello, new world!!!\"\n", list);
+        assertEquals("clear\n", clear);
         assertEquals("", manager.downInputList());
         assertEquals(":c", manager.upInputList());
         assertEquals(":list", manager.upInputList());
         assertEquals(":c", manager.downInputList());
         assertEquals(":c", manager.downInputList());
-        //assertEquals("test\n", manager.input("main = putStrLn \"test\""));
-        //assertEquals("test\n", manager.input("main = putStrLn test"));
-        //assertEquals("False\n", manager.input("ifState 1 2"));
     }
 }

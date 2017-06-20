@@ -1,7 +1,6 @@
 package com.lucciola.haskellanywhereforandroid;
 
 import org.junit.Test;
-import com.lucciola.haskell.HaskellAnywhere;
 
 import static org.junit.Assert.*;
 
@@ -13,8 +12,6 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        HaskellAnywhere haskell = new HaskellAnywhere();
-        assertEquals("\"Hello, world\"\n", haskell.input("\"Hello, world\"").getMessage());
         assertEquals(4, 2 + 2);
     }
 }

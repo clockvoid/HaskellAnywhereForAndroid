@@ -7,6 +7,8 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import com.lucciola.haskell.Haskell;
+
 import static org.junit.Assert.*;
 
 /**
@@ -22,5 +24,10 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("com.lucciola.haskellanywhereforandroid", appContext.getPackageName());
+
+        Haskell haskell = new Haskell();
+        haskell.setProgram("main = putStrLn \"Hello, world\"");
+        assertEquals("Hello, world\n", haskell.run().getMessage());
+        assertEquals(4, 2 + 2);
     }
 }

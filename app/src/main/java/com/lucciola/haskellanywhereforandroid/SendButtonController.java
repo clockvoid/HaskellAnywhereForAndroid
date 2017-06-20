@@ -1,6 +1,7 @@
 package com.lucciola.haskellanywhereforandroid;
 
 import android.view.View;
+import android.app.Activity;
 
 /**
  * Created by hiden on 2017/06/10.
@@ -9,16 +10,21 @@ import android.view.View;
 public class SendButtonController extends Controller {
 
     private Model model;
+    private Activity activity;
     private ProgramManager manager;
 
-    public SendButtonController(Model arg0, ProgramManager arg1) {
+    public SendButtonController(Model arg0, Activity arg1, ProgramManager arg2) {
         this.model = arg0;
-        this.manager = arg1;
+        this.activity = arg1;
+        this.manager = arg2;
     }
 
     @Override
     public void onClick(View v) {
-       model.addMonitorText(manager.input(model.getInputText()));
+        String input = this.model.getInputText();
+        this.model.clearInputText();
+        UIAction uiAction = UIActionFactory.createUIAction(manager.input(input), model, activity);
+        uiAction.execute();
     }
 
 }

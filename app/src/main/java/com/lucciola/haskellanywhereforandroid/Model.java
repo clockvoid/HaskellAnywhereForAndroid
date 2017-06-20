@@ -37,12 +37,16 @@ public class Model {
         return this.input.getText().toString();
     }
 
-    private void setInputText(String arg0){
+    public void setInputText(String arg0){
         this.input.setText(arg0);
     }
 
     public void addInputText(String arg0){
         setInputText(getInputText() + arg0);
+    }
+
+    public void clearInputText() {
+        setInputText("");
     }
 
 }

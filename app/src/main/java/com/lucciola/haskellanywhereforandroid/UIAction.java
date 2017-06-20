@@ -1,6 +1,7 @@
 package com.lucciola.haskellanywhereforandroid;
 
 import android.os.AsyncTask;
+import android.app.Activity;
 
 /**
  * Created by hiden on 2017/06/17.
@@ -8,17 +9,15 @@ import android.os.AsyncTask;
 
 public abstract class UIAction extends AsyncTask<Void, Void, String> {
     protected Model model;
+    protected Activity activity;
     protected String inputString;
+    protected String documentString;
 
-    public UIAction(String arg0) {
+    public UIAction(String arg0, String arg1, Model arg2, Activity arg3) {
         this.inputString = arg0;
+        this.documentString = arg1;
+        this.model = arg2;
+        this.activity = arg3;
     }
 
-    public void setModel(Model arg0) {
-        this.model = arg0;
-    }
-
-    public String getInputString() {
-        return this.inputString;
-    }
 }

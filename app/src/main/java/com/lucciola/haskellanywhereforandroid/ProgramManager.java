@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.Set;
 import android.os.AsyncTask;
+import android.app.Activity;
 
 /**
  * Created by hiden on 2017/06/10.
@@ -22,12 +23,23 @@ public class ProgramManager {
     private final Pattern matchMainFunction = Pattern.compile("^main = .*");
     private final Pattern matchFunction = Pattern.compile("^let .*");
     private final Pattern matchCommand = Pattern.compile("^:.*");
+    private Model model;
+    private Activity activity;
 
-    public ProgramManager() {
+    private void InitializeMemberVariable() {
         this.program = "";
         this.programList = new HashMap<String, String>(0);
         this.inputList = new ArrayList<String>(0);
         this.listCounter = 0;
+    }
+
+    public ProgramManager() {
+       this.InitializeMemberVariable();
+    }
+
+    public ProgramManager(Model arg0, Activity arg1) {
+        this.model = arg0;
+        this.activity = arg1;
     }
 
     public String getCurrentProgram() {
@@ -53,33 +65,26 @@ public class ProgramManager {
        return result;
     }
 
-    private String runHaskell(String arg0) {
-        String result = "";
-        AsyncTask<String, String, String> task = new HaskellRunner(result);
-        task.execute(arg0);
-        return result + "\n";
-    }
-
-    public String input(String arg0) {
-        //TODO: make a class that contains result like Result, and return it by this function.
+    public Action input(String arg0) {
         String result = "> " + arg0 + "\n";
+        Action resultAction = null;
         this.program = arg0;
         this.inputList.add(this.program);
         this.listCounter = this.inputList.size();
         if (this.matchMainFunction.matcher(arg0).matches()) {
             this.programList.put("main", arg0);
-            result += this.runHaskell(this.getProgramList());
+            resultAction = new Action(Action.MODE_HASKELL, result, this.getProgramList());
         } else if (this.matchFunction.matcher(arg0).matches()) {
             String functionName = arg0.split(" ")[1];
             this.programList.put(functionName, arg0.replaceAll("^let ", ""));
-            result += "OK, added define: " + functionName + "\n";
+            resultAction = new Action(Action.MODE_FUNCTION, result, "OK, added define: " + functionName + "\n");
         } else if (this.matchCommand.matcher(arg0).matches()) {
-            result += this.runCommand(arg0);
+            resultAction = new Action(Action.MODE_COMMAND, result, this.runCommand(arg0));
         } else {
             this.programList.put("main", "main = print $ " + arg0);
-            result += this.runHaskell(this.getProgramList());
+            resultAction = new Action(Action.MODE_HASKELL, result, this.getProgramList());
         }
-        return result;
+        return resultAction;
     }
 
     public void inputProgram(String arg0, String arg1) {
