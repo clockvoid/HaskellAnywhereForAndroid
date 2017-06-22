@@ -14,7 +14,7 @@ public class CommandAction extends UIAction {
 
     @Override
     protected void onPreExecute() {
-        if (this.inputString.equals("clear")) {
+        if (this.documentString.equals("clear\n")) {
             this.model.clearMonitor();
         } else {
             this.model.addMonitorText(this.inputString + this.documentString);
