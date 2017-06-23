@@ -3,7 +3,7 @@
 
 A Simple Haskell interpreter for Android
 
-![Imgur](http://i.imgur.com/90KdDuCm.png, "Screenshot")
+[![Imgur](http://i.imgur.com/90KdDuCm.png, "Screenshot")](http://imgur.com/90KdDuC)
 
 ## Description
 Androidで動作するHaskell Interpreterを目指しています．
@@ -14,7 +14,7 @@ Androidで動作するHaskell Interpreterを目指しています．
  - importing Packages support
    パッケージのインポートに対応しています．これでList系の関数も思う存分試すことができます．
    
-   ![Imgur](http://i.imgur.com/ZEZyvgVm.png, "import support")
+   [![Imgur](http://i.imgur.com/ZEZyvgVm.png, "Features")](http://imgur.com/ZEZyvgV)
 
 ## Libraries
 * [Apach Http Client 4.3 for Android](https://hc.apache.org/httpcomponents-client-4.3.x/android-port.html)
