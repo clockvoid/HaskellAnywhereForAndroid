@@ -2,23 +2,28 @@ package com.lucciola.haskellanywhereforandroid;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
+import android.view.View;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.AppCompatImageButton;
 import android.widget.TextView;
-import android.widget.Button;
 import android.widget.EditText;
+
+import com.lucciola.haskellanywhereforandroid.controller.Controller;
+import com.lucciola.haskellanywhereforandroid.controller.SendButtonController;
+import com.lucciola.haskellanywhereforandroid.controller.SymbolButtonController;
+import com.lucciola.haskellanywhereforandroid.controller.UpDownButtonController;
 
 public class MainActivity extends AppCompatActivity {
 
     private Model model;
     private Controller sendButtonController;
+    private Controller upDownButtonController;
+    private Controller symbolButtonController;
     private ProgramManager manager;
     private EditText input;
     private TextView monitor;
-    private Button symbolButtons;
     private AppCompatImageButton sendButton;
     private AppCompatImageButton upButton;
     private AppCompatImageButton downButton;
@@ -26,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private void createUIPartsInstans() {
         input = (EditText)findViewById(R.id.input);
         monitor = (TextView)findViewById(R.id.monitor);
-        symbolButtons = (Button)findViewById(R.id.symbol_buttons);
         sendButton = (AppCompatImageButton)findViewById(R.id.send);
         upButton = (AppCompatImageButton)findViewById(R.id.up);
         downButton = (AppCompatImageButton)findViewById(R.id.down);
@@ -44,8 +48,16 @@ public class MainActivity extends AppCompatActivity {
         model = new Model(input, monitor);
         manager = new ProgramManager();
         sendButtonController = new SendButtonController(model, this, manager);
+        upDownButtonController = new UpDownButtonController(model, this, manager);
+        symbolButtonController = new SymbolButtonController(model, this, manager);
 
         sendButton.setOnClickListener(sendButtonController);
+        upButton.setOnClickListener(upDownButtonController);
+        downButton.setOnClickListener(upDownButtonController);
+    }
+
+    public void onSymbolButtonClick(View v) {
+        symbolButtonController.onClick(v);
     }
 
     @Override

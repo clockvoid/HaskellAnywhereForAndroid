@@ -41,8 +41,14 @@ public class Model {
         this.input.setText(arg0);
     }
 
-    public void addInputText(String arg0){
-        setInputText(getInputText() + arg0);
+    public void addInputText(String arg0) {
+        this.input.append(arg0);
+    }
+
+    public void instertInputTextCurrentPositon(String arg0) {
+        int start = Math.max(this.input.getSelectionStart(), 0);
+        int end = Math.max(this.input.getSelectionEnd(), 0);
+        this.input.getText().replace(Math.min(start, end), Math.max(start, end), arg0, 0, arg0.length());
     }
 
     public void clearInputText() {

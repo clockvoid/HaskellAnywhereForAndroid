@@ -110,6 +110,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="=" />
 
             <Button
@@ -119,6 +120,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="$" />
 
             <Button
@@ -128,6 +130,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="." />
 
             <Button
@@ -137,6 +140,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="," />
 
             <Button
@@ -146,6 +150,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="'" />
 
             <Button
@@ -155,15 +160,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
-                android:text="'" />
-
-            <Button
-                android:id="@+id/symbol_buttons"
-                style="@style/Console"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_gravity="center"
-                android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="&quot;" />
 
             <Button
@@ -173,6 +170,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="`" />
 
             <Button
@@ -182,6 +180,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="(" />
 
             <Button
@@ -191,6 +190,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text=")" />
 
             <Button
@@ -200,6 +200,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="[" />
 
             <Button
@@ -209,6 +210,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="]" />
 
             <Button
@@ -218,6 +220,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="&lt;" />
 
             <Button
@@ -227,6 +230,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="-" />
 
             <Button
@@ -236,6 +240,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="&gt;" />
 
             <Button
@@ -245,6 +250,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="+" />
 
             <Button
@@ -254,6 +260,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="*" />
 
             <Button
@@ -263,6 +270,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="/" />
 
             <Button
@@ -272,6 +280,7 @@
                 android:layout_height="36dp"
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
+                android:onClick="onSymbolButtonClick"
                 android:text="\" />
 
         </LinearLayout>

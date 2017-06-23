@@ -1,17 +1,18 @@
-package com.lucciola.haskellanywhereforandroid;
+package com.lucciola.haskellanywhereforandroid.controller;
 
 import android.view.View;
 import android.app.Activity;
+
+import com.lucciola.haskellanywhereforandroid.Model;
+import com.lucciola.haskellanywhereforandroid.ProgramManager;
+import com.lucciola.haskellanywhereforandroid.uiaction.UIAction;
+import com.lucciola.haskellanywhereforandroid.uiaction.UIActionFactory;
 
 /**
  * Created by hiden on 2017/06/10.
  */
 
 public class SendButtonController extends Controller {
-
-    private Model model;
-    private Activity activity;
-    private ProgramManager manager;
 
     public SendButtonController(Model arg0, Activity arg1, ProgramManager arg2) {
         this.model = arg0;

@@ -1,6 +1,8 @@
-package com.lucciola.haskellanywhereforandroid;
+package com.lucciola.haskellanywhereforandroid.uiaction;
 
 import android.app.Activity;
+
+import com.lucciola.haskellanywhereforandroid.Model;
 
 /**
  * Created by hiden on 2017/06/19.

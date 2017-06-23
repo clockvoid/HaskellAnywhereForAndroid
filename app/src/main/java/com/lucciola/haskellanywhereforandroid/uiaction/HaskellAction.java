@@ -1,6 +1,8 @@
-package com.lucciola.haskellanywhereforandroid;
+package com.lucciola.haskellanywhereforandroid.uiaction;
 
 import com.lucciola.haskell.Haskell;
+import com.lucciola.haskellanywhereforandroid.Model;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 
