@@ -20,15 +20,18 @@ public class ProgramManager {
     private List<String> inputList;
     private int listCounter;
     private Map<String, String> programList;
+    private Map<String, String> packageList;
     private final Pattern matchMainFunction = Pattern.compile("^main = .*");
     private final Pattern matchFunction = Pattern.compile("^let .*");
     private final Pattern matchCommand = Pattern.compile("^:.*");
+    private final Pattern matchImport = Pattern.compile("^import .*");
     private Model model;
     private Activity activity;
 
     private void InitializeMemberVariable() {
         this.program = "";
         this.programList = new HashMap<String, String>(0);
+        this.packageList = new HashMap<String, String>(0);
         this.inputList = new ArrayList<String>(0);
         this.listCounter = 0;
     }
@@ -46,6 +49,15 @@ public class ProgramManager {
         return this.program;
     }
 
+    public String getPackageList() {
+        String result = "";
+        Set<String> packageNameSet = this.packageList.keySet();
+        for (String packageName : packageNameSet) {
+            result += packageList.get(packageName) + "\n";
+        }
+        return result;
+    }
+
     public String getProgramList() {
         String tmp = "";
         Set<String> functionNameSet = this.programList.keySet();
@@ -58,7 +70,7 @@ public class ProgramManager {
     private String runCommand(String arg0) {
         String result = "";
        if (arg0.equals(":list") || arg0.equals(":l")) {
-           result = this.getProgramList();
+           result = this.getPackageList() + this.getProgramList();
        } else if (arg0.equals(":clear") || arg0.equals(":c")) {
            result = "clear\n";
        }
@@ -73,16 +85,20 @@ public class ProgramManager {
         this.listCounter = this.inputList.size();
         if (this.matchMainFunction.matcher(arg0).matches()) {
             this.programList.put("main", arg0);
-            resultAction = new Action(Action.MODE_HASKELL, result, this.getProgramList());
+            resultAction = new Action(Action.MODE_HASKELL, result, this.getPackageList() + this.getProgramList());
         } else if (this.matchFunction.matcher(arg0).matches()) {
             String functionName = arg0.split(" ")[1];
             this.programList.put(functionName, arg0.replaceAll("^let ", ""));
             resultAction = new Action(Action.MODE_FUNCTION, result, "OK, added define: " + functionName + "\n");
         } else if (this.matchCommand.matcher(arg0).matches()) {
             resultAction = new Action(Action.MODE_COMMAND, result, this.runCommand(arg0));
+        } else if (this.matchImport.matcher(arg0).matches()) {
+            String packageName = arg0.split(" ")[1];
+            this.packageList.put(packageName, arg0);
+            resultAction = new Action(Action.MODE_FUNCTION, result, "OK, imported: " + packageName + "\n");
         } else {
             this.programList.put("main", "main = print $ " + arg0);
-            resultAction = new Action(Action.MODE_HASKELL, result, this.getProgramList());
+            resultAction = new Action(Action.MODE_HASKELL, result, this.getPackageList() + this.getProgramList());
         }
         return resultAction;
     }
