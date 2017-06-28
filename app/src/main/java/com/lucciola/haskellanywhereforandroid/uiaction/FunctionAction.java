@@ -1,7 +1,5 @@
 package com.lucciola.haskellanywhereforandroid.uiaction;
 
-import android.app.Activity;
-
 import com.lucciola.haskellanywhereforandroid.Model;
 
 /**
@@ -10,8 +8,8 @@ import com.lucciola.haskellanywhereforandroid.Model;
 
 public class FunctionAction extends UIAction {
 
-    public FunctionAction(String arg0, String arg1, Model arg2, Activity arg3) {
-        super(arg0, arg1, arg2, arg3);
+    public FunctionAction(String arg0, String arg1, Model arg2) {
+        super(arg0, arg1, arg2);
     }
 
     @Override

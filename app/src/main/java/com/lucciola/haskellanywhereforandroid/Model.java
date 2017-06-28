@@ -1,7 +1,12 @@
 package com.lucciola.haskellanywhereforandroid;
 
-import android.widget.EditText;
+import android.app.Activity;
+import android.support.v7.widget.AppCompatImageButton;
 import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.ScrollView;
+import android.app.ProgressDialog;
+
 
 /**
  * Created by hiden on 2017/06/10.
@@ -9,14 +14,41 @@ import android.widget.TextView;
 
 public class Model {
 
+    private ScrollView scrollView;
+    private Activity mainActivity;
+    private String monitorString;
     private EditText input;
     private TextView monitor;
-    private String monitorString;
+    private AppCompatImageButton sendButton;
+    private AppCompatImageButton upButton;
+    private AppCompatImageButton downButton;
+    private ProgressDialog dialog;
 
-    public Model(EditText arg1, TextView arg2) {
-        this.input = arg1;
-        this.monitor = arg2;
+    private void createUIPartsInstans() {
+        this.input = (EditText)this.mainActivity.findViewById(R.id.input);
+        this.monitor = (TextView)this.mainActivity.findViewById(R.id.monitor);
+        this.sendButton = (AppCompatImageButton)this.mainActivity.findViewById(R.id.send);
+        this.upButton = (AppCompatImageButton)this.mainActivity.findViewById(R.id.up);
+        this.downButton = (AppCompatImageButton)this.mainActivity.findViewById(R.id.down);
+    }
+
+    public Model(Activity arg0) {
+        this.mainActivity = arg0;
+        createUIPartsInstans();
         this.monitorString = this.monitor.getText().toString();
+        this.dialog = new ProgressDialog(this.mainActivity);
+    }
+
+    public AppCompatImageButton getSendButton() {
+        return this.sendButton;
+    }
+
+    public AppCompatImageButton getUpButton() {
+        return this.upButton;
+    }
+
+    public AppCompatImageButton getDownButton() {
+        return this.downButton;
     }
 
     private void setMonitorText(String arg0) {
@@ -53,6 +85,20 @@ public class Model {
 
     public void clearInputText() {
         setInputText("");
+    }
+
+    public void scrollDown() {
+    }
+
+    public void showDialog(String title, String message) {
+        this.dialog.setTitle(title);
+        this.dialog.setMessage(message);
+        this.dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        this.dialog.show();
+    }
+
+    public void hideDialog() {
+        this.dialog.hide();
     }
 
 }

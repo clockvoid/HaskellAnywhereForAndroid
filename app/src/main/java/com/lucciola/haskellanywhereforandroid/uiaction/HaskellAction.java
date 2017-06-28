@@ -3,29 +3,21 @@ package com.lucciola.haskellanywhereforandroid.uiaction;
 import com.lucciola.haskell.Haskell;
 import com.lucciola.haskellanywhereforandroid.Model;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-
 /**
  * Created by hiden on 2017/06/17.
  */
 
 public class HaskellAction extends UIAction {
     private Haskell haskell;
-    private ProgressDialog dialog;
 
-    public HaskellAction(String arg0, String arg1, Model arg2, Activity arg3) {
-        super(arg0, arg1, arg2, arg3);
+    public HaskellAction(String arg0, String arg1, Model arg2) {
+        super(arg0, arg1, arg2);
         this.haskell = new Haskell();
-        this.dialog = new ProgressDialog(this.activity);
-        this.dialog.setMessage("Running the Haskell program...");
-        this.dialog.setTitle("Please wait...");
     }
 
     @Override
     protected void onPreExecute() {
-        this.dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        this.dialog.show();
+        this.model.showDialog("Please wait...", "Runnnig the Haskell program...");
     }
 
     @Override
@@ -37,6 +29,6 @@ public class HaskellAction extends UIAction {
     @Override
     protected void onPostExecute(String arg0) {
         this.model.addMonitorText(this.inputString + arg0);
-        this.dialog.hide();
+        this.model.hideDialog();
     }
 }

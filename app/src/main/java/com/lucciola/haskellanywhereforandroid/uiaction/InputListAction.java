@@ -1,7 +1,5 @@
 package com.lucciola.haskellanywhereforandroid.uiaction;
 
-import android.app.Activity;
-
 import com.lucciola.haskellanywhereforandroid.Model;
 import com.lucciola.haskellanywhereforandroid.uiaction.UIAction;
 
@@ -11,8 +9,8 @@ import com.lucciola.haskellanywhereforandroid.uiaction.UIAction;
 
 public class InputListAction extends UIAction {
 
-    public InputListAction(String arg0, String arg1, Model arg2, Activity arg3) {
-        super(arg0, arg1, arg2, arg3);
+    public InputListAction(String arg0, String arg1, Model arg2) {
+        super(arg0, arg1, arg2);
     }
 
     @Override

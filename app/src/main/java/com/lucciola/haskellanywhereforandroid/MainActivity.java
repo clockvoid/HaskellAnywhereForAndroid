@@ -22,19 +22,6 @@ public class MainActivity extends AppCompatActivity {
     private Controller upDownButtonController;
     private Controller symbolButtonController;
     private ProgramManager manager;
-    private EditText input;
-    private TextView monitor;
-    private AppCompatImageButton sendButton;
-    private AppCompatImageButton upButton;
-    private AppCompatImageButton downButton;
-
-    private void createUIPartsInstans() {
-        input = (EditText)findViewById(R.id.input);
-        monitor = (TextView)findViewById(R.id.monitor);
-        sendButton = (AppCompatImageButton)findViewById(R.id.send);
-        upButton = (AppCompatImageButton)findViewById(R.id.up);
-        downButton = (AppCompatImageButton)findViewById(R.id.down);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,17 +30,15 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolBar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolBar);
 
-        createUIPartsInstans();
-
-        model = new Model(input, monitor);
+        model = new Model(this);
         manager = new ProgramManager();
-        sendButtonController = new SendButtonController(model, this, manager);
-        upDownButtonController = new UpDownButtonController(model, this, manager);
-        symbolButtonController = new SymbolButtonController(model, this, manager);
+        sendButtonController = new SendButtonController(model, manager);
+        upDownButtonController = new UpDownButtonController(model, manager);
+        symbolButtonController = new SymbolButtonController(model, manager);
 
-        sendButton.setOnClickListener(sendButtonController);
-        upButton.setOnClickListener(upDownButtonController);
-        downButton.setOnClickListener(upDownButtonController);
+        this.model.getSendButton().setOnClickListener(sendButtonController);
+        this.model.getUpButton().setOnClickListener(upDownButtonController);
+        this.model.getDownButton().setOnClickListener(upDownButtonController);
     }
 
     public void onSymbolButtonClick(View v) {

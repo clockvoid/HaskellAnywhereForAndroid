@@ -1,7 +1,5 @@
 package com.lucciola.haskellanywhereforandroid.uiaction;
 
-import android.app.Activity;
-
 import com.lucciola.haskellanywhereforandroid.Action;
 import com.lucciola.haskellanywhereforandroid.Model;
 
@@ -11,23 +9,23 @@ import com.lucciola.haskellanywhereforandroid.Model;
 
 public class UIActionFactory {
 
-    public static UIAction createUIAction(Action action, Model model, Activity activity) {
+    public static UIAction createUIAction(Action action, Model model) {
         UIAction result = null;
         switch (action.getMode()) {
             case 1: {
-                result = new HaskellAction(action.getInputString(), action.getDocumentString(), model, activity);
+                result = new HaskellAction(action.getInputString(), action.getDocumentString(), model);
                 break;
             }
             case 2: {
-                result = new FunctionAction(action.getInputString(), action.getDocumentString(), model, activity);
+                result = new FunctionAction(action.getInputString(), action.getDocumentString(), model);
                 break;
             }
             case 3: {
-                result = new CommandAction(action.getInputString(), action.getDocumentString(), model, activity);
+                result = new CommandAction(action.getInputString(), action.getDocumentString(), model);
                 break;
             }
             case 4: {
-                result = new InputListAction(action.getInputString(), action.getDocumentString(), model, activity);
+                result = new InputListAction(action.getInputString(), action.getDocumentString(), model);
                 break;
             }
         }
