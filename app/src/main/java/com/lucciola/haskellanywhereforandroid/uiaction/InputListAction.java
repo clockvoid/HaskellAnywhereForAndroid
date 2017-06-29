@@ -16,6 +16,7 @@ public class InputListAction extends UIAction {
     @Override
     protected void onPreExecute() {
         this.model.setInputText(this.documentString);
+        this.model.setInputCursorLast();
     }
 
     @Override

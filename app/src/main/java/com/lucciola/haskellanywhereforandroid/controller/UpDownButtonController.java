@@ -21,9 +21,11 @@ public class UpDownButtonController extends Controller {
         switch (v.getId()) {
             case R.id.up:
                 this.model.setInputText(this.manager.upInputList());
+                this.model.setInputCursorLast();
                 break;
             case R.id.down:
                 this.model.setInputText(this.manager.downInputList());
+                this.model.setInputCursorLast();
                 break;
         }
     }

@@ -7,7 +7,6 @@ import android.widget.EditText;
 import android.widget.ScrollView;
 import android.app.ProgressDialog;
 
-
 /**
  * Created by hiden on 2017/06/10.
  */
@@ -30,6 +29,7 @@ public class Model {
         this.sendButton = (AppCompatImageButton)this.mainActivity.findViewById(R.id.send);
         this.upButton = (AppCompatImageButton)this.mainActivity.findViewById(R.id.up);
         this.downButton = (AppCompatImageButton)this.mainActivity.findViewById(R.id.down);
+        this.scrollView = (ScrollView)this.mainActivity.findViewById(R.id.monitor_scroll_view);
     }
 
     public Model(Activity arg0) {
@@ -88,6 +88,11 @@ public class Model {
     }
 
     public void scrollDown() {
+        this.scrollView.scrollTo(0, this.scrollView.getBottom());
+    }
+
+    public void setInputCursorLast() {
+        this.input.setSelection(this.getInputText().length());
     }
 
     public void showDialog(String title, String message) {

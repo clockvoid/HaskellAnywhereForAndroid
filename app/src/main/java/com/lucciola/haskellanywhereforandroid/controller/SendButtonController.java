@@ -23,6 +23,7 @@ public class SendButtonController extends Controller {
         this.model.clearInputText();
         UIAction uiAction = UIActionFactory.createUIAction(manager.input(input), model);
         uiAction.execute();
+        this.model.scrollDown();
     }
 
 }
