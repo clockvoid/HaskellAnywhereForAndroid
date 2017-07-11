@@ -20,11 +20,11 @@ public class Action {
     public static final int MODE_INPUTLIST = 4;
     private String inputString;
     private String documentString;
+    private ProgramManager manager;
 
-    public Action(int arg0, String arg1, String arg2) {
+    public Action(int arg0, ProgramManager arg3) {
         this.mode = arg0;
-        this.inputString = arg1;
-        this.documentString = arg2;
+        this.manager = arg3;
     }
 
     public int getMode() {
@@ -37,6 +37,10 @@ public class Action {
 
     public String getDocumentString() {
         return this.documentString;
+    }
+
+    public ProgramManager getProgramManager() {
+        return this.manager;
     }
 
 }

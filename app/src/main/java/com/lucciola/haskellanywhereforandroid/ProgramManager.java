@@ -16,6 +16,7 @@ import android.app.Activity;
 public class ProgramManager {
 
     private String program;
+    private String input;
     private List<String> inputList;
     private int listCounter;
     private Map<String, String> programList;
@@ -29,6 +30,7 @@ public class ProgramManager {
 
     private void InitializeMemberVariable() {
         this.program = "";
+        this.input = "";
         this.programList = new HashMap<String, String>(0);
         this.packageList = new HashMap<String, String>(0);
         this.inputList = new ArrayList<String>(0);
@@ -44,10 +46,15 @@ public class ProgramManager {
         this.activity = arg1;
     }
 
+    public String getCurrentInput() {
+        return this.input;
+    }
+
     public String getCurrentProgram() {
         return this.program;
     }
 
+<<<<<<< HEAD
     public String getPackageList() {
         String result = "";
         Set<String> packageNameSet = this.packageList.keySet();
@@ -58,14 +65,20 @@ public class ProgramManager {
     }
 
     public String getProgramList() {
+=======
+>>>>>>> change: input method in ProgramManager class
         String tmp = "";
+        StringBuilder builder;
         Set<String> functionNameSet = this.programList.keySet();
         for (String functionName : functionNameSet) {
-            tmp += programList.get(functionName) + "\n";
+            builder.append(programList.get(functinName));
+            builder.append("\n");
         }
+        tmp = builder.toString();
         return tmp;
     }
 
+<<<<<<< HEAD
     private String runCommand(String arg0) {
         String result = "";
        if (arg0.equals(":list") || arg0.equals(":l")) {
@@ -78,20 +91,26 @@ public class ProgramManager {
        return result;
     }
 
+=======
+>>>>>>> change: input method in ProgramManager class
     public Action input(String arg0) {
-        String result = "> " + arg0 + "\n";
-        Action resultAction = null;
+        this.input = "> " + arg0;
         this.program = arg0;
         this.inputList.add(this.program);
         this.listCounter = this.inputList.size();
+        Action resultAction = null;
         if (this.matchMainFunction.matcher(arg0).matches()) {
             this.programList.put("main", arg0);
+<<<<<<< HEAD
             resultAction = new Action(Action.MODE_HASKELL, result, this.getPackageList() + this.getProgramList());
+=======
+>>>>>>> change: input method in ProgramManager class
         } else if (this.matchFunction.matcher(arg0).matches()) {
             String functionName = arg0.split(" ")[1];
             this.programList.put(functionName, arg0.replaceAll("^let ", ""));
-            resultAction = new Action(Action.MODE_FUNCTION, result, "OK, added define: " + functionName + "\n");
+            resultAction = new Action(Action.MODE_FUNCTION, this);
         } else if (this.matchCommand.matcher(arg0).matches()) {
+<<<<<<< HEAD
             resultAction = new Action(Action.MODE_COMMAND, result, this.runCommand(arg0));
         } else if (this.matchImport.matcher(arg0).matches()) {
             String packageName = arg0.split(" ")[1];
@@ -100,6 +119,8 @@ public class ProgramManager {
         } else {
             this.programList.put("main", "main = print $ " + arg0);
             resultAction = new Action(Action.MODE_HASKELL, result, this.getPackageList() + this.getProgramList());
+=======
+>>>>>>> change: input method in ProgramManager class
         }
         return resultAction;
     }
