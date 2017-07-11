@@ -1,15 +1,10 @@
 package com.lucciola.haskellanywhereforandroid;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.AppCompatImageButton;
-import android.widget.TextView;
-import android.widget.EditText;
 
 import com.lucciola.haskellanywhereforandroid.controller.Controller;
 import com.lucciola.haskellanywhereforandroid.controller.SendButtonController;
@@ -18,7 +13,7 @@ import com.lucciola.haskellanywhereforandroid.controller.UpDownButtonController;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Model model;
+    private View view;
     private Controller sendButtonController;
     private Controller upDownButtonController;
     private Controller symbolButtonController;
@@ -31,18 +26,18 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolBar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolBar);
 
-        model = new Model(this);
+        view = new View(this);
         manager = new ProgramManager();
-        sendButtonController = new SendButtonController(model, manager);
-        upDownButtonController = new UpDownButtonController(model, manager);
-        symbolButtonController = new SymbolButtonController(model, manager);
+        sendButtonController = new SendButtonController(view, manager);
+        upDownButtonController = new UpDownButtonController(view, manager);
+        symbolButtonController = new SymbolButtonController(view, manager);
 
-        this.model.getSendButton().setOnClickListener(sendButtonController);
-        this.model.getUpButton().setOnClickListener(upDownButtonController);
-        this.model.getDownButton().setOnClickListener(upDownButtonController);
+        this.view.getSendButton().setOnClickListener(sendButtonController);
+        this.view.getUpButton().setOnClickListener(upDownButtonController);
+        this.view.getDownButton().setOnClickListener(upDownButtonController);
     }
 
-    public void onSymbolButtonClick(View v) {
+    public void onSymbolButtonClick(android.view.View v) {
         symbolButtonController.onClick(v);
     }
 

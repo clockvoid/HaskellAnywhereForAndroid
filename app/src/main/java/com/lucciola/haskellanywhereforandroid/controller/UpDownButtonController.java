@@ -1,8 +1,6 @@
 package com.lucciola.haskellanywhereforandroid.controller;
 
-import android.view.View;
-
-import com.lucciola.haskellanywhereforandroid.Model;
+import com.lucciola.haskellanywhereforandroid.View;
 import com.lucciola.haskellanywhereforandroid.ProgramManager;
 import com.lucciola.haskellanywhereforandroid.R;
 
@@ -12,20 +10,20 @@ import com.lucciola.haskellanywhereforandroid.R;
 
 public class UpDownButtonController extends Controller {
 
-    public UpDownButtonController(Model arg0, ProgramManager arg2) {
+    public UpDownButtonController(View arg0, ProgramManager arg2) {
         super(arg0, arg2);
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(android.view.View v) {
         switch (v.getId()) {
             case R.id.up:
-                this.model.setInputText(this.manager.upInputList());
-                this.model.setInputCursorLast();
+                this.view.setInputText(this.manager.upInputList());
+                this.view.setInputCursorLast();
                 break;
             case R.id.down:
-                this.model.setInputText(this.manager.downInputList());
-                this.model.setInputCursorLast();
+                this.view.setInputText(this.manager.downInputList());
+                this.view.setInputCursorLast();
                 break;
         }
     }

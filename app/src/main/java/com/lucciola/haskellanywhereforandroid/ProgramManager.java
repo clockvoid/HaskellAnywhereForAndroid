@@ -4,10 +4,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.Set;
-import android.os.AsyncTask;
+
 import android.app.Activity;
 
 /**
@@ -25,7 +24,7 @@ public class ProgramManager {
     private final Pattern matchFunction = Pattern.compile("^let .*");
     private final Pattern matchCommand = Pattern.compile("^:.*");
     private final Pattern matchImport = Pattern.compile("^import .*");
-    private Model model;
+    private View view;
     private Activity activity;
 
     private void InitializeMemberVariable() {
@@ -40,8 +39,8 @@ public class ProgramManager {
        this.InitializeMemberVariable();
     }
 
-    public ProgramManager(Model arg0, Activity arg1) {
-        this.model = arg0;
+    public ProgramManager(View arg0, Activity arg1) {
+        this.view = arg0;
         this.activity = arg1;
     }
 
@@ -73,6 +72,8 @@ public class ProgramManager {
            result = this.getPackageList() + this.getProgramList();
        } else if (arg0.equals(":clear") || arg0.equals(":c")) {
            result = "clear\n";
+       } else if (arg0.equals(":t") || arg0.equals(":type")) {
+           result = "type";
        }
        return result;
     }

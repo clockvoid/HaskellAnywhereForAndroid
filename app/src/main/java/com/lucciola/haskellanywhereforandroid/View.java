@@ -11,7 +11,7 @@ import android.app.ProgressDialog;
  * Created by hiden on 2017/06/10.
  */
 
-public class Model {
+public class View {
 
     private ScrollView scrollView;
     private Activity mainActivity;
@@ -32,7 +32,7 @@ public class Model {
         this.scrollView = (ScrollView)this.mainActivity.findViewById(R.id.monitor_scroll_view);
     }
 
-    public Model(Activity arg0) {
+    public View(Activity arg0) {
         this.mainActivity = arg0;
         createUIPartsInstans();
         this.monitorString = this.monitor.getText().toString();

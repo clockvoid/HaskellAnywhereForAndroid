@@ -1,7 +1,6 @@
 package com.lucciola.haskellanywhereforandroid.uiaction;
 
-import com.lucciola.haskellanywhereforandroid.Model;
-import com.lucciola.haskellanywhereforandroid.uiaction.UIAction;
+import com.lucciola.haskellanywhereforandroid.View;
 
 /**
  * Created by hiden on 2017/06/19.
@@ -9,14 +8,14 @@ import com.lucciola.haskellanywhereforandroid.uiaction.UIAction;
 
 public class InputListAction extends UIAction {
 
-    public InputListAction(String arg0, String arg1, Model arg2) {
+    public InputListAction(String arg0, String arg1, View arg2) {
         super(arg0, arg1, arg2);
     }
 
     @Override
     protected void onPreExecute() {
-        this.model.setInputText(this.documentString);
-        this.model.setInputCursorLast();
+        this.view.setInputText(this.documentString);
+        this.view.setInputCursorLast();
     }
 
     @Override

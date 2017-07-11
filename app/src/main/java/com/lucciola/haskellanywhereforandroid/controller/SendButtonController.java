@@ -1,8 +1,6 @@
 package com.lucciola.haskellanywhereforandroid.controller;
 
-import android.view.View;
-
-import com.lucciola.haskellanywhereforandroid.Model;
+import com.lucciola.haskellanywhereforandroid.View;
 import com.lucciola.haskellanywhereforandroid.ProgramManager;
 import com.lucciola.haskellanywhereforandroid.uiaction.UIAction;
 import com.lucciola.haskellanywhereforandroid.uiaction.UIActionFactory;
@@ -13,17 +11,16 @@ import com.lucciola.haskellanywhereforandroid.uiaction.UIActionFactory;
 
 public class SendButtonController extends Controller {
 
-    public SendButtonController(Model arg0, ProgramManager arg2) {
+    public SendButtonController(View arg0, ProgramManager arg2) {
         super(arg0, arg2);
     }
 
     @Override
-    public void onClick(View v) {
-        String input = this.model.getInputText();
-        this.model.clearInputText();
-        UIAction uiAction = UIActionFactory.createUIAction(manager.input(input), model);
+    public void onClick(android.view.View v) {
+        String input = this.view.getInputText();
+        this.view.clearInputText();
+        UIAction uiAction = UIActionFactory.createUIAction(manager.input(input), view);
         uiAction.execute();
-        this.model.scrollDown();
     }
 
 }

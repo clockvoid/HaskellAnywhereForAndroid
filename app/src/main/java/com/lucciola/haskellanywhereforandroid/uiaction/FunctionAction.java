@@ -1,6 +1,6 @@
 package com.lucciola.haskellanywhereforandroid.uiaction;
 
-import com.lucciola.haskellanywhereforandroid.Model;
+import com.lucciola.haskellanywhereforandroid.View;
 
 /**
  * Created by hiden on 2017/06/19.
@@ -8,13 +8,13 @@ import com.lucciola.haskellanywhereforandroid.Model;
 
 public class FunctionAction extends UIAction {
 
-    public FunctionAction(String arg0, String arg1, Model arg2) {
+    public FunctionAction(String arg0, String arg1, View arg2) {
         super(arg0, arg1, arg2);
     }
 
     @Override
     protected void onPreExecute() {
-        this.model.addMonitorText(this.inputString + this.documentString);
+        this.view.addMonitorText(this.inputString + this.documentString);
     }
 
     @Override
@@ -24,5 +24,6 @@ public class FunctionAction extends UIAction {
 
     @Override
     protected void onPostExecute(String arg0) {
+        this.view.scrollDown();
     }
 }
