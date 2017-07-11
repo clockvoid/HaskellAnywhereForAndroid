@@ -21,16 +21,19 @@ public class ProgramManager {
     private List<String> inputList;
     private int listCounter;
     private Map<String, String> programList;
+    private Map<String, String> packageList;
     private final Pattern matchMainFunction = Pattern.compile("^main = .*");
     private final Pattern matchFunction = Pattern.compile("^let .*");
     private final Pattern matchCommand = Pattern.compile("^:.*");
-    private Model model;
+    private final Pattern matchImport = Pattern.compile("^import .*");
+    private View view;
     private Activity activity;
 
     private void InitializeMemberVariable() {
         this.program = "";
         this.input = "";
         this.programList = new HashMap<String, String>(0);
+        this.packageList = new HashMap<String, String>(0);
         this.inputList = new ArrayList<String>(0);
         this.listCounter = 0;
     }
@@ -39,8 +42,8 @@ public class ProgramManager {
        this.InitializeMemberVariable();
     }
 
-    public ProgramManager(Model arg0, Activity arg1) {
-        this.model = arg0;
+    public ProgramManager(View arg0, Activity arg1) {
+        this.view = arg0;
         this.activity = arg1;
     }
 
@@ -52,20 +55,46 @@ public class ProgramManager {
         return this.program;
     }
 
-    public String getProgram() {
-        String tmp = "";
-        StringBuilder builder;
-        Set<String> functionNameSet = this.programList.keySet();
-        for (String functionName : functionNameSet) {
-            builder.append(programList.get(functinName));
+    public String getPackage() {
+        String result = "";
+        StringBuilder builder = new StringBuilder();
+        Set<String> packcageNameSet = this.packageList.keySet();
+        for (String packageName : packcageNameSet) {
+            builder.append(packageList.get(packageName));
             builder.append("\n");
         }
-        tmp = builder.toString();
-        return tmp;
+        result = builder.toString();
+        return result;
+    }
+
+    public String getProgram() {
+        String result = "";
+        StringBuilder builder = new StringBuilder();
+        Set<String> functionNameSet = this.programList.keySet();
+        for (String functionName : functionNameSet) {
+            builder.append(programList.get(functionName));
+            builder.append("\n");
+        }
+        result = builder.toString();
+        return result;
+    }
+
+    public String getProgramWithoutMain() {
+        String result = "";
+        StringBuilder builder = new StringBuilder();
+        Set<String> functionNameSet = this.programList.keySet();
+        for (String functionName : functionNameSet) {
+            if (!functionName.equals("main")) {
+                builder.append(programList.get(functionName));
+                builder.append("\n");
+            }
+        }
+        result = builder.toString();
+        return result;
     }
 
     public Action input(String arg0) {
-        this.input = "> " + arg0;
+        this.input = "> " + arg0 + "\n";
         this.program = arg0;
         this.inputList.add(this.program);
         this.listCounter = this.inputList.size();
@@ -74,8 +103,10 @@ public class ProgramManager {
             this.programList.put("main", arg0);
             resultAction = new Action(Action.MODE_HASKELL, this);
         } else if (this.matchFunction.matcher(arg0).matches()) {
-            String functionName = arg0.split(" ")[1];
-            this.programList.put(functionName, arg0.replaceAll("^let ", ""));
+            this.programList.put(arg0.split(" ")[1], arg0.replaceAll("^let ", ""));
+            resultAction = new Action(Action.MODE_FUNCTION, this);
+        } else if (this.matchImport.matcher(arg0).matches()) {
+            this.packageList.put(arg0.split(" ")[1], arg0);
             resultAction = new Action(Action.MODE_FUNCTION, this);
         } else if (this.matchCommand.matcher(arg0).matches()) {
             resultAction = new Action(Action.MODE_COMMAND, this);

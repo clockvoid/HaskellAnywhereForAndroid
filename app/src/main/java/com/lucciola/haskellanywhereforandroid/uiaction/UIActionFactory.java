@@ -12,20 +12,16 @@ public class UIActionFactory {
     public static UIAction createUIAction(Action action, View view) {
         UIAction result = null;
         switch (action.getMode()) {
-            case 1: {
-                result = new HaskellAction(action.getInputString(), action.getDocumentString(), view);
+            case Action.MODE_HASKELL: {
+                result = new HaskellAction(action.getProgramManager(), view);
                 break;
             }
-            case 2: {
-                result = new FunctionAction(action.getInputString(), action.getDocumentString(), view);
+            case Action.MODE_FUNCTION: {
+                result = new FunctionAction(action.getProgramManager(), view);
                 break;
             }
-            case 3: {
-                result = new CommandAction(action.getInputString(), action.getDocumentString(), view);
-                break;
-            }
-            case 4: {
-                result = new InputListAction(action.getInputString(), action.getDocumentString(), view);
+            case Action.MODE_COMMAND: {
+                result = new CommandAction(action.getProgramManager(), view);
                 break;
             }
         }

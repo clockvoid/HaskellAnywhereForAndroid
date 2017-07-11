@@ -2,6 +2,7 @@ package com.lucciola.haskellanywhereforandroid.uiaction;
 
 import com.lucciola.haskell.Haskell;
 import com.lucciola.haskellanywhereforandroid.View;
+import com.lucciola.haskellanywhereforandroid.ProgramManager;
 
 /**
  * Created by hiden on 2017/06/17.
@@ -10,8 +11,8 @@ import com.lucciola.haskellanywhereforandroid.View;
 public class HaskellAction extends UIAction {
     private Haskell haskell;
 
-    public HaskellAction(String arg0, String arg1, View arg2) {
-        super(arg0, arg1, arg2);
+    public HaskellAction(ProgramManager arg0, View arg2) {
+        super(arg0, arg2);
         this.haskell = new Haskell();
     }
 
@@ -22,14 +23,14 @@ public class HaskellAction extends UIAction {
 
     @Override
     protected String doInBackground(Void... params) {
-        haskell.setProgram(this.documentString);
-        return haskell.run().getMessage();
+        haskell.setProgram(this.manager.getProgram());
+        return haskell.run().getMessage() + "\n";
     }
 
     @Override
     protected void onPostExecute(String arg0) {
-        this.view.addMonitorText(this.inputString + arg0);
-        this.view.scrollDown();
+        this.view.addMonitorText(this.manager.getCurrentInput() + arg0);
         this.view.hideDialog();
+        this.view.scrollDown();
     }
 }

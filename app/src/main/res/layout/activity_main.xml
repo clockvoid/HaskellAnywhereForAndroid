@@ -23,7 +23,7 @@
         android:id="@+id/monitor_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_gravity="center"
+        android:layout_gravity="bottom"
         android:layout_weight="1"
         android:elevation="1dp"
         android:fillViewport="true">

@@ -17,9 +17,6 @@ public class Action {
     public static final int MODE_HASKELL = 1;
     public static final int MODE_FUNCTION = 2;
     public static final int MODE_COMMAND = 3;
-    public static final int MODE_INPUTLIST = 4;
-    private String inputString;
-    private String documentString;
     private ProgramManager manager;
 
     public Action(int arg0, ProgramManager arg3) {
@@ -29,14 +26,6 @@ public class Action {
 
     public int getMode() {
         return this.mode;
-    }
-
-    public String getInputString() {
-        return this.inputString;
-    }
-
-    public String getDocumentString() {
-        return this.documentString;
     }
 
     public ProgramManager getProgramManager() {

@@ -2,6 +2,7 @@ package com.lucciola.haskellanywhereforandroid;
 
 import android.app.Activity;
 import android.support.v7.widget.AppCompatImageButton;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.ScrollView;
@@ -88,7 +89,19 @@ public class View {
     }
 
     public void scrollDown() {
-        this.scrollView.scrollTo(0, this.scrollView.getBottom());
+        this.scrollView.computeScroll();
+        this.scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+        //this.scrollView.scrollTo(0, scrollView.getBottom());
+        /*int iLine = this.monitor.getLineCount ();
+        iLine /= 2;
+        int iPixel = this.monitor.getLineHeight ();
+        int iHeight = this.scrollView.getHeight ();
+        int i = iLine * iPixel;
+        i -= iHeight / 2;
+        this.scrollView.smoothScrollTo(0, i);*/
+        //int line = this.monitor.getLayout ().getLineForOffset(0);
+        //int y = (int) ((line + 0.5) * this.monitor.getLineHeight ());
+        //this.scrollView.smoothScrollTo (0, y - this.scrollView.getHeight () / 2);
     }
 
     public void setInputCursorLast() {
@@ -103,7 +116,7 @@ public class View {
     }
 
     public void hideDialog() {
-        this.dialog.hide();
+        this.dialog.dismiss();
     }
 
 }
