@@ -16,8 +16,10 @@ public class ProgramManagerTest {
         int two = manager.input("let hello = putStrLn \"hello, new world!!!\"").getMode(); // input function
         int three = manager.input("let ifState n m = n == m").getMode(); // function has input values
         int four = manager.input("let hello = print \"hello, new world!!!\"").getMode(); // rewrite function
+        int five = manager.input("let test x = if x == 0\n  then 1\n  else 2").getMode(); // multi line
 
         assertEquals(Action.MODE_FUNCTION, one);
+        assertEquals(Action.MODE_FUNCTION, five);
 
         /*String list = manager.input(":list").getDocumentString();
         String clear = manager.input(":c").getDocumentString();*/

@@ -22,10 +22,10 @@ public class ProgramManager {
     private int listCounter;
     private Map<String, String> programList;
     private Map<String, String> packageList;
-    private final Pattern matchMainFunction = Pattern.compile("^main = .*");
-    private final Pattern matchFunction = Pattern.compile("^let .*");
-    private final Pattern matchCommand = Pattern.compile("^:.*");
-    private final Pattern matchImport = Pattern.compile("^import .*");
+    private final Pattern matchMainFunction = Pattern.compile("^main = .*", Pattern.DOTALL);
+    private final Pattern matchFunction = Pattern.compile("^let .*", Pattern.DOTALL);
+    private final Pattern matchCommand = Pattern.compile("^:.*", Pattern.DOTALL);
+    private final Pattern matchImport = Pattern.compile("^import .*", Pattern.DOTALL);
     private View view;
     private Activity activity;
 
