@@ -112,6 +112,7 @@ public class View {
         this.dialog.setTitle(title);
         this.dialog.setMessage(message);
         this.dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        this.dialog.setCancelable(false);
         this.dialog.show();
     }
 

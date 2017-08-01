@@ -284,7 +284,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/key_button_background"
                 android:onClick="onSymbolButtonClick"
-                android:text="\" />
+                android:text="\\" />
 
         </LinearLayout>
 
