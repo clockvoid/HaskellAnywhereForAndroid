@@ -18,6 +18,7 @@ public class HaskellAction extends UIAction {
 
     @Override
     protected void onPreExecute() {
+        this.view.scrollDown();
         this.view.showDialog("Please wait...", "Runnnig the Haskell program...");
     }
 

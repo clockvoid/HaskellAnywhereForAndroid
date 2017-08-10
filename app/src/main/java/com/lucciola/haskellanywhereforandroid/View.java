@@ -89,8 +89,13 @@ public class View {
     }
 
     public void scrollDown() {
-        this.scrollView.computeScroll();
-        this.scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+        //this.scrollView.computeScroll();
+        this.scrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+            }
+        });
         //this.scrollView.scrollTo(0, scrollView.getBottom());
         /*int iLine = this.monitor.getLineCount ();
         iLine /= 2;
