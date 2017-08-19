@@ -1,31 +1,34 @@
 language: android
-
-android:
+android: 
 sudo: false
-
 components:
-  - tools
-  - tools
-  - platform-tools
-  - build-tools-25.0.0
-  - android-23
-  - extra-google-m2repository
-  - extra-android-m2repository
-  
+- tools
+- tools
+- platform-tools
+- build-tools-25.0.0
+- android-23
+- extra-google-m2repository
+- extra-android-m2repository
 jdk:
-  - oraclejdk8
-
+- oraclejdk8
 install:
-  - android-update-sdk --accept-licenses='android-sdk-license-.+' --components=tools
-  - android-update-sdk --accept-licenses='android-sdk-license-.+' --components=build-tools-25.0.0
-  - android-update-sdk --accept-licenses='android-sdk-license-.+' --components=android-23
-  - android-update-sdk --accept-licenses='android-sdk-license-.+' --components=extra-android-m2repository
-  - android-update-sdk --accept-licenses='android-sdk-license-.+' --components=extra-google-m2repository
-
+- android-update-sdk --accept-licenses='android-sdk-license-.+' --components=tools
+- android-update-sdk --accept-licenses='android-sdk-license-.+' --components=build-tools-25.0.0
+- android-update-sdk --accept-licenses='android-sdk-license-.+' --components=android-23
+- android-update-sdk --accept-licenses='android-sdk-license-.+' --components=extra-android-m2repository
+- android-update-sdk --accept-licenses='android-sdk-license-.+' --components=extra-google-m2repository
 before_install:
-  - mkdir "$ANDROID_HOME/licenses" || true
-  - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
-  - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
-
+- mkdir "$ANDROID_HOME/licenses" || true
+- echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
+- echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
 script:
-  - ./gradlew clean build
+- "./gradlew clean build"
+deploy:
+  provider: releases
+  api_key: 156e3227e42ea02eaf0e99f7b8b0b276768408e0
+  file: HaskellAnywhereForAndroid/build/outputs/apk/HaskellAnywhereForAndroid*release*.apk
+  on:
+    branch: master
+    repo: clockvoid/HaskellAnywhereForAndroid
+after_success:
+- sh set_tags.sh
