@@ -7,8 +7,12 @@
     <string name="action_save">save as...</string>
     <string name="send">send</string>
     <string name="test_text">
-       Haskell Any Where v0.1.0 by lucciola\n
+       Haskell Anywhere v0.1.0 by lucciola\n
     </string>
     <string name="added_define">OK, added define: </string>
     <string name="invalid_input">Invalid input!</string>
+    <string name="help">
+        Commands Available from the prompt:\n
+        \t&lt;statement&gt;\tevaluate/run &lt;statement&gt;
+    </string>
 </resources>
