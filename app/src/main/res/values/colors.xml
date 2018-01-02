@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#FF00796B</color>
+    <color name="colorPrimary">#FF009688</color>
+    <color name="colorPrimaryLight">#FF26A69A</color>
+    <color name="colorAccent">#FFE040FB</color>
+    <color name="button_ripple_color">#33FFFFFF</color>
+    <color name="colorPrimaryText">#FFF5F5F5</color>
+</resources>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Haskell</string>
+    <string name="version">v0.1.0</string>
+    <string name="haskell">Haskell</string>
+    <string name="action_settings">Action Settings</string>
+    <string name="action_favorite">Action Favorite</string>
+    <string name="action_save">save as...</string>
+    <string name="send">send</string>
+    <string name="test_text">
+       Haskell Anywhere v0.1.0 by lucciola\n
+    </string>
+    <string name="added_define">OK, added define: </string>
+    <string name="invalid_input">Invalid input!</string>
+    <string name="help">
+        Commands Available from the prompt:\n
+        \t&lt;statement&gt;\tevaluate/run &lt;statement&gt;
+    </string>
+</resources>
