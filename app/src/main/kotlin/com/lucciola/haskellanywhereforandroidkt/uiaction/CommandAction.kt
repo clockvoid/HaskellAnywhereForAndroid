@@ -22,14 +22,11 @@ class CommandAction(arg0: ProgramManager, arg2: View) : UIAction(arg0, arg2) {
     }
 
     override fun onPreExecute() {
-        if (this.command == ":clear" || this.command == ":c") {
-            this.view.clearMonitor()
-        } else if (this.command == ":type" || this.command == ":t") {
-            this.view.showDialog("Please waint", "runnig the haskell program...")
-        } else if (this.command == ":list" || this.command == ":l") {
-            this.view.addMonitorText(this.manager.currentInput!! + this.manager.program)
-        } else {
-            this.view.addMonitorText(this.manager.currentInput!! + "command not found...\n")
+        when {
+            this.command == ":clear" || this.command == ":c" -> this.view.clearMonitor()
+            this.command == ":type" || this.command == ":t" -> this.view.showDialog("Please waint", "runnig the haskell program...")
+            this.command == ":list" || this.command == ":l" -> this.view.addMonitorText(this.manager.currentInput!! + this.manager.program)
+            else -> this.view.addMonitorText(this.manager.currentInput!! + "command not found...\n")
         }
     }
 

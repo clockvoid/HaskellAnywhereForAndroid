@@ -12,5 +12,4 @@ import com.lucciola.haskellanywhereforandroidkt.ProgramManager
 abstract class UIAction(protected var manager: ProgramManager, protected var view: View) : AsyncTask<Void, Void, String>() {
     protected var inputString: String? = null
     protected var documentString: String? = null
-
 }
