@@ -18,18 +18,9 @@ android:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 
-#install:
-#- android-update-sdk --accept-licenses='android-sdk-license-.+' --components=tools
-#- android-update-sdk --accept-licenses='android-sdk-license-.+' --components=build-tools-25.0.0
-#- android-update-sdk --accept-licenses='android-sdk-license-.+' --components=android-23
-#- android-update-sdk --accept-licenses='android-sdk-license-.+' --components=extra-android-m2repository
-#- android-update-sdk --accept-licenses='android-sdk-license-.+' --components=extra-google-m2repository
-#before_install:
-#- mkdir "$ANDROID_HOME/licenses" || true
-#- echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
-#- echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
 script:
-- "./gradlew clean build"
+  - "./gradlew clean build"
+
 deploy:
   provider: releases
   api_key:
@@ -41,5 +32,6 @@ deploy:
     all_branches: true
     tags: true
     repo: clockvoid/HaskellAnywhereForAndroid
-after_success:
-- sh set_tags.sh
+
+#after_success:
+#  - sh set_tags.sh
