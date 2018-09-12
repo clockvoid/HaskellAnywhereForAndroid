@@ -74,19 +74,8 @@ class View(private val mainActivity: Activity) {
     }
 
     fun scrollDown() {
-        //this.scrollView.computeScroll();
+        // this is the only successful way to scroll bottom
         this.scrollView!!.post { scrollView!!.fullScroll(ScrollView.FOCUS_DOWN) }
-        //this.scrollView.scrollTo(0, scrollView.getBottom());
-        /*int iLine = this.monitor.getLineCount ();
-        iLine /= 2;
-        int iPixel = this.monitor.getLineHeight ();
-        int iHeight = this.scrollView.getHeight ();
-        int i = iLine * iPixel;
-        i -= iHeight / 2;
-        this.scrollView.smoothScrollTo(0, i);*/
-        //int line = this.monitor.getLayout ().getLineForOffset(0);
-        //int y = (int) ((line + 0.5) * this.monitor.getLineHeight ());
-        //this.scrollView.smoothScrollTo (0, y - this.scrollView.getHeight () / 2);
     }
 
     fun setInputCursorLast() {
