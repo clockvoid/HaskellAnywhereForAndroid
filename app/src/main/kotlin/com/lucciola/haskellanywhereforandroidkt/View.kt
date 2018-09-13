@@ -1,12 +1,11 @@
 package com.lucciola.haskellanywhereforandroidkt
 
 import android.app.Activity
+import android.app.ProgressDialog
 import android.support.v7.widget.AppCompatImageButton
-import android.text.method.ScrollingMovementMethod
 import android.widget.TextView
 import android.widget.EditText
 import android.widget.ScrollView
-import android.app.ProgressDialog
 
 /**
  * Created by hiden on 2017/06/10.
@@ -30,7 +29,7 @@ class View(private val mainActivity: Activity) {
         get() = this.input!!.text.toString()
         set(arg0) = this.input!!.setText(arg0)
 
-    private fun createUIPartsInstans() {
+    private fun createUIPartsInstance() {
         this.input = this.mainActivity.findViewById(R.id.input) as EditText
         this.monitor = this.mainActivity.findViewById(R.id.monitor) as TextView
         this.sendButton = this.mainActivity.findViewById(R.id.send) as AppCompatImageButton
@@ -40,13 +39,13 @@ class View(private val mainActivity: Activity) {
     }
 
     init {
-        createUIPartsInstans()
-        this.monitorString = this.monitor!!.text.toString()
+        createUIPartsInstance()
+        this.monitorString = this.monitor?.text.toString()
         this.dialog = ProgressDialog(this.mainActivity)
     }
 
     private fun setMonitorText(arg0: String) {
-        monitor!!.text = arg0
+        monitor?.text = arg0
     }
 
     fun addMonitorText(arg0: String) {
@@ -60,13 +59,17 @@ class View(private val mainActivity: Activity) {
     }
 
     fun addInputText(arg0: String) {
-        this.input!!.append(arg0)
+        this.input?.append(arg0)
     }
 
     fun instertInputTextCurrentPositon(arg0: String) {
-        val start = Math.max(this.input!!.selectionStart, 0)
-        val end = Math.max(this.input!!.selectionEnd, 0)
-        this.input!!.text.replace(Math.min(start, end), Math.max(start, end), arg0, 0, arg0.length)
+        this.input?.selectionStart?.let { start ->
+             val start = Math.max(start, 0)
+            this.input?.selectionEnd?.let { end ->
+                val end = Math.max(end, 0)
+                this.input?.text?.replace(Math.min(start, end), Math.max(start, end), arg0, 0, arg0.length)
+            }
+        }
     }
 
     fun clearInputText() {
@@ -75,11 +78,11 @@ class View(private val mainActivity: Activity) {
 
     fun scrollDown() {
         // this is the only successful way to scroll bottom
-        this.scrollView!!.post { scrollView!!.fullScroll(ScrollView.FOCUS_DOWN) }
+        this.scrollView?.post { scrollView?.fullScroll(ScrollView.FOCUS_DOWN) }
     }
 
     fun setInputCursorLast() {
-        this.input!!.setSelection(this.inputText.length)
+        this.input?.setSelection(this.inputText.length)
     }
 
     fun showDialog(title: String, message: String) {
