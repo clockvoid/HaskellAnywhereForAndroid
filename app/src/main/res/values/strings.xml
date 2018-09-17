@@ -15,4 +15,25 @@
         Commands Available from the prompt:\n
         \t&lt;statement&gt;\tevaluate/run &lt;statement&gt;
     </string>
+    <string name="equals">=</string>
+    <string name="daller">$</string>
+    <string name="dot">.</string>
+    <string name="comma">,</string>
+    <string name="single_quote">\'</string>
+    <string name="quote">\"</string>
+    <string name="back_quote">`</string>
+    <string name="parentheses_left">(</string>
+    <string name="parentheses_right">)</string>
+    <string name="bracket_left">[</string>
+    <string name="bracket_right">]</string>
+    <string name="angle_bracket_left"><![CDATA[<]]></string>
+    <string name="minus">-</string>
+    <string name="angle_bracket_right"><![CDATA[>]]></string>
+    <string name="plus">+</string>
+    <string name="star">*</string>
+    <string name="slash">/</string>
+    <string name="back_slash">\\</string>
+    <string name="down_button">down button</string>
+    <string name="up_button">up button</string>
+    <string name="send_button">send button</string>
 </resources>
