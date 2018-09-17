@@ -120,7 +120,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.equals))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.equals)}"
                         android:text="@string/equals" />
 
                     <Button
@@ -130,7 +130,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.daller))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.daller)}"
                         android:text="@string/daller" />
 
                     <Button
@@ -140,7 +140,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.dot))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.dot)}"
                         android:text="@string/dot" />
 
                     <Button
@@ -150,7 +150,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.comma))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.comma)}"
                         android:text="@string/comma" />
 
                     <Button
@@ -160,7 +160,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.single_quote))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.single_quote)}"
                         android:text="@string/single_quote" />
 
                     <Button
@@ -170,7 +170,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.quote))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.quote)}"
                         android:text="@string/quote" />
 
                     <Button
@@ -180,7 +180,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.back_quote))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.back_quote)}"
                         android:text="@string/back_quote" />
 
                     <Button
@@ -190,7 +190,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.parentheses_left))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.parentheses_left)}"
                         android:text="@string/parentheses_left" />
 
                     <Button
@@ -200,7 +200,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.parentheses_right))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.parentheses_right)}"
                         android:text="@string/parentheses_right" />
 
                     <Button
@@ -210,7 +210,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.bracket_left))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.bracket_left)}"
                         android:text="@string/bracket_left" />
 
                     <Button
@@ -220,7 +220,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.bracket_right))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.bracket_right)}"
                         android:text="@string/bracket_right" />
 
                     <Button
@@ -230,7 +230,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.angle_bracket_left))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.angle_bracket_left)}"
                         android:text="@string/angle_bracket_left" />
 
                     <Button
@@ -240,7 +240,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.minus))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.minus)}"
                         android:text="@string/minus" />
 
                     <Button
@@ -250,7 +250,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.angle_bracket_right))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.angle_bracket_right)}"
                         android:text="@string/angle_bracket_right" />
 
                     <Button
@@ -260,7 +260,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.plus))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.plus)}"
                         android:text="@string/plus" />
 
                     <Button
@@ -270,7 +270,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.star))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.star)}"
                         android:text="@string/star" />
 
                     <Button
@@ -280,7 +280,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.slash))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.slash)}"
                         android:text="@string/slash" />
 
                     <Button
@@ -290,7 +290,7 @@
                         android:layout_height="36dp"
                         android:layout_gravity="center"
                         android:background="@drawable/key_button_background"
-                        android:onClick="@{view -> viewmodel.inputSymbol(view.getContext().getString(R.string.back_slash))}"
+                        android:onClick="@{view -> viewmodel.inputSymbol(R.string.back_slash)}"
                         android:text="@string/back_slash" />
 
                 </LinearLayout>

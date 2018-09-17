@@ -1,7 +1,9 @@
 package com.lucciola.haskellanywhereforandroidkt.main
 
+import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +16,11 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewDataBinding = MainFragBinding.inflate(inflater, container, false).apply {
-            viewmodel = (activity as MainActivity).obtainViewModel(MainViewModel::class.java)
+            viewmodel = (activity as MainActivity).obtainViewModel(MainViewModel::class.java).apply {
+                symbolButtonClickEvent.observe(this@MainFragment, Observer { symbol ->
+                    input.text = SpannableStringBuilder(input.text.toString() + symbol)
+                })
+            }
         }
         return viewDataBinding.root
     }
