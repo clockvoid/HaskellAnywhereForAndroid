@@ -10,8 +10,8 @@ import com.lucciola.haskellanywhereforandroidkt.data.source.HaskellRepository
 import com.lucciola.haskellanywhereforandroidkt.main.MainViewModel
 
 class ViewModelFactory private constructor(
-        private val application: Application
-//        private val haskellRepository: HaskellRepository
+        private val application: Application,
+        private val haskellRepository: HaskellRepository
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
@@ -19,7 +19,7 @@ class ViewModelFactory private constructor(
             with(modelClass) {
                 when {
                     isAssignableFrom(MainViewModel::class.java) ->
-                        MainViewModel(application)
+                        MainViewModel(application, haskellRepository)
                     else ->
                         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
                 }
@@ -32,7 +32,8 @@ class ViewModelFactory private constructor(
 
         fun getInstance(application: Application) =
                 INSTANCE ?: synchronized(ViewModelFactory::class.java) {
-                    INSTANCE ?: ViewModelFactory(application)
+                    INSTANCE ?: ViewModelFactory(application,
+                            Injection.provideHaskellRepository(application.applicationContext))
                             .also { INSTANCE = it }
                 }
 
