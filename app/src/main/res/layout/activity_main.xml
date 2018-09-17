@@ -54,7 +54,7 @@
         <ImageButton
             android:id="@+id/down"
             android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_height="match_parent"
             android:layout_gravity="bottom"
             android:background="@drawable/button_background"
             android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
@@ -63,7 +63,7 @@
         <ImageButton
             android:id="@+id/up"
             android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_height="match_parent"
             android:layout_gravity="bottom"
             android:background="@drawable/button_background"
             android:src="@drawable/ic_keyboard_arrow_up_black_24dp"
@@ -75,15 +75,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:layout_weight="8"
+            android:layout_weight="1"
+            android:padding="12dp"
             android:background="@color/colorPrimaryText"
             android:maxLines="5"
-            android:minLines="2" />
+            android:minLines="1" />
 
         <ImageButton
             android:id="@+id/send"
             android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_height="match_parent"
             android:layout_gravity="bottom"
             android:background="@drawable/button_background"
             android:src="@drawable/ic_send_black_24dp"

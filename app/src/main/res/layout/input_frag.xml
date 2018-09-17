@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/input_elements">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.lucciola.haskellanywhereforandroidkt.main.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:elevation="10dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="top">
+
+            <ImageButton
+                android:id="@+id/down"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_background"
+                android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
+                android:tint="@color/colorPrimaryText"
+                android:contentDescription="@string/down_button" />
+
+            <ImageButton
+                android:id="@+id/up"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:background="@drawable/button_background"
+                android:src="@drawable/ic_keyboard_arrow_up_black_24dp"
+                android:tint="@color/colorPrimaryText"
+                android:contentDescription="@string/up_button" />
+
+            <EditText
+                android:id="@+id/input"
+                style="@style/Console"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryText"
+                android:padding="12dp"
+                android:maxLines="5"
+                android:minLines="1"
+                android:inputType="textMultiLine"
+                tools:ignore="LabelFor" />
+
+            <ImageButton
+                android:id="@+id/send"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:background="@drawable/button_background"
+                android:src="@drawable/ic_send_black_24dp"
+                android:tint="@color/colorPrimaryText"
+                android:contentDescription="@string/send_button" />
+
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:elevation="10dp"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:background="@color/colorPrimaryLight"
+                android:fitsSystemWindows="true"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/symbol_button_equals"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/equals" />
+
+                <Button
+                    android:id="@+id/symbol_button_daller"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/daller" />
+
+                <Button
+                    android:id="@+id/symbol_button_dot"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/dot" />
+
+                <Button
+                    android:id="@+id/symbol_button_comma"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/comma" />
+
+                <Button
+                    android:id="@+id/symbol_button_single_quote"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/single_quote" />
+
+                <Button
+                    android:id="@+id/symbol_button_quote"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/quote" />
+
+                <Button
+                    android:id="@+id/symbol_button_back_quote"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/back_quote" />
+
+                <Button
+                    android:id="@+id/symbol_button_parentheses_left"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/parentheses_left" />
+
+                <Button
+                    android:id="@+id/symbol_button_parentheses_right"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/parentheses_right" />
+
+                <Button
+                    android:id="@+id/symbol_button_bracket_left"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/bracket_left" />
+
+                <Button
+                    android:id="@+id/symbol_button_bracket_right"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/bracket_right" />
+
+                <Button
+                    android:id="@+id/symbol_button_angle_bracket_left"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/angle_bracket_left" />
+
+                <Button
+                    android:id="@+id/symbol_button_minus"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/minus" />
+
+                <Button
+                    android:id="@+id/symbol_button_angle_bracket_right"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/angle_bracket_right" />
+
+                <Button
+                    android:id="@+id/symbol_button_plus"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/plus" />
+
+                <Button
+                    android:id="@+id/symbol_button_star"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/star" />
+
+                <Button
+                    android:id="@+id/symbol_button_slash"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/slash" />
+
+                <Button
+                    android:id="@+id/symbol_button_back_slash"
+                    style="@style/Console"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/key_button_background"
+                    android:onClick="onSymbolButtonClick"
+                    android:text="@string/back_slash" />
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+</layout>
