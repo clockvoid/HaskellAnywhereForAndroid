@@ -5,18 +5,14 @@ android:
   components:
     - tools
     - platform-tools
-    - build-tools-26.0.2
-    - android-23
+    - build-tools-28.0.2
+    - android-28
     - extra-google-m2repository
     - extra-android-m2repository
     - extra-google-google_play_services
-    - addon-google_apis-google-26
+    - addon-google_apis-google-28
   jdk:
     - oraclejdk8
-  licenses:
-    - 'android-sdk-preview-license-52d11cd2'
-    - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
 
 script:
   - "./gradlew clean build"
