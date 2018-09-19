@@ -2,7 +2,6 @@ package com.lucciola.haskellanywhereforandroidkt.main
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import com.lucciola.haskellanywhereforandroidkt.R
 import com.lucciola.haskellanywhereforandroidkt.util.obtainViewModel
 import com.lucciola.haskellanywhereforandroidkt.util.replaceFragmentInActivity
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun setupViewFragment() {
+    private fun setupViewFragment() {
         replaceFragmentInActivity(MainFragment.newInstance(), content_frame.id)
     }
 

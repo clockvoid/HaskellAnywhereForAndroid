@@ -1,14 +1,29 @@
 package com.lucciola.haskellanywhereforandroidkt.data.source
 
-import android.arch.lifecycle.LiveData
+import android.util.Log
 import com.lucciola.haskellanywhereforandroidkt.data.Haskell
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HaskellRepository(
         private val haskellRemoteDataSource: HaskellDataSource
-) : HaskellDataSource {
+) {
 
-    override fun getResult(program: String): LiveData<Haskell> =
-            haskellRemoteDataSource.getResult(program)
+    fun getResult(program: String, onResult: ((Haskell) -> Unit)) =
+        haskellRemoteDataSource.getResult(program).enqueue(object : Callback<Haskell> {
+            override fun onResponse(call: Call<Haskell>?, response: Response<Haskell>?) {
+                response?.body()?.let { haskell ->
+                    onResult(haskell)
+                }
+            }
+
+            override fun onFailure(call: Call<Haskell>?, t: Throwable) {
+                t.printStackTrace()
+                Log.d("haskell", "some error occurred: ${t::class.java} : ${t.message}")
+                onResult(Haskell())
+            }
+        })
 
     companion object {
         private var INSTANCE: HaskellRepository? = null

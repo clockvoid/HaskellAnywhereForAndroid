@@ -7,7 +7,7 @@ import retrofit2.Call
 import retrofit2.http.Query
 
 interface HaskellService {
-    @POST("/")
+    @POST("/rundotnet/api")
     fun submitProgram(@Query("LanguageChoice") LanguageChoice: String = "11",
                       @Query("Program") Program: String,
                       @Query("Input") Input: String,

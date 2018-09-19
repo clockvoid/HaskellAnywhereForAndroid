@@ -3,7 +3,6 @@ package com.lucciola.haskellanywhereforandroidkt.main
 import android.annotation.SuppressLint
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
-import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.content.Context
 import com.lucciola.haskellanywhereforandroidkt.data.Haskell
@@ -15,7 +14,7 @@ class MainViewModel (
 ) : AndroidViewModel(context) {
 
     internal val symbolButtonClickedEvent = MutableLiveData<String>()
-    var programSentEvent: LiveData<Haskell> = MutableLiveData<Haskell>()
+    var programSentEvent = MutableLiveData<Haskell>()
 
     @SuppressLint("StaticFieldLeak")
     private val context: Context = context.applicationContext
@@ -25,6 +24,6 @@ class MainViewModel (
     }
 
     fun sendProgram(program: String) {
-        programSentEvent = haskellRepository.getResult(program)
+        haskellRepository.getResult(program, programSentEvent::postValue)
     }
 }

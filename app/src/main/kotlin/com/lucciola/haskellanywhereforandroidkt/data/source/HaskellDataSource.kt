@@ -1,8 +1,8 @@
 package com.lucciola.haskellanywhereforandroidkt.data.source
 
-import android.arch.lifecycle.LiveData
 import com.lucciola.haskellanywhereforandroidkt.data.Haskell
+import retrofit2.Call
 
 interface HaskellDataSource {
-    fun getResult(program: String): LiveData<Haskell>
+    fun getResult(program: String): Call<Haskell>
 }

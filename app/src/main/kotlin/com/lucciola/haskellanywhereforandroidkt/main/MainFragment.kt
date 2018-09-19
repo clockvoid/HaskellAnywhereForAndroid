@@ -23,8 +23,7 @@ class MainFragment : Fragment() {
                 symbolButtonClickedEvent.observe(this@MainFragment, Observer { symbol ->
                     input.text = SpannableStringBuilder(input.text.toString() + symbol)
                 })
-                programSentEvent.observe(this@MainFragment, Observer { haskell ->
-                    Log.d("haskell", haskell?.Result)
+                programSentEvent.observe(this@MainFragment, Observer { haskell -> Log.d("haskell", haskell?.Result)
                 })
             }
         }
