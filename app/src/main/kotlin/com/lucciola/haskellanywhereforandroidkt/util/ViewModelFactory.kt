@@ -38,7 +38,7 @@ class ViewModelFactory private constructor(
                 }
 
         @VisibleForTesting
-        fun destoryInstance() {
+        fun destroyInstance() {
             INSTANCE = null
         }
     }
