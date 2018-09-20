@@ -16,7 +16,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 object HaskellRemoteDataSource : HaskellDataSource {
     private val haskellService: HaskellService by lazy { createService() }
 
-
     private fun createService(): HaskellService {
         val apiUrl = "http://rextester.com/"
         val client = builderHttpClient()
