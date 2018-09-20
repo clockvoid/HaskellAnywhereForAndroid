@@ -3,11 +3,11 @@ package com.lucciola.haskellanywhereforandroidkt.main
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.text.SpannableStringBuilder
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ScrollView
 import com.lucciola.haskellanywhereforandroidkt.databinding.MainFragBinding
 import com.lucciola.haskellanywhereforandroidkt.util.obtainViewModel
 
@@ -21,9 +21,15 @@ class MainFragment : Fragment() {
         viewDataBinding = MainFragBinding.inflate(inflater, container, false).apply {
             viewmodel = (activity as MainActivity).obtainViewModel(MainViewModel::class.java).apply {
                 symbolButtonClickedEvent.observe(this@MainFragment, Observer { symbol ->
-                    input.text = SpannableStringBuilder(input.text.toString() + symbol)
+                    input.text.append(symbol)
+                    input.setSelection(input.text.length)
                 })
-                programSentEvent.observe(this@MainFragment, Observer { haskell -> Log.d("haskell", haskell?.Result)
+                programSentEvent.observe(this@MainFragment, Observer { haskell ->
+                    Log.d("haskell", haskell?.Result ?: "the result is null")
+                    monitor.text = (monitor.text.toString() + (haskell?.Result ?: "the result is null\n"))
+                    monitorScrollView.post {
+                        monitorScrollView.fullScroll(ScrollView.FOCUS_DOWN)
+                    }
                 })
             }
         }
