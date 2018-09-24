@@ -1,10 +1,9 @@
 package com.lucciola.haskellanywhereforandroidkt.apiservice
 
-import retrofit2.http.POST
-
 import com.lucciola.haskellanywhereforandroidkt.data.Haskell
 import retrofit2.Call
 import retrofit2.http.Query
+import retrofit2.http.POST
 
 interface HaskellService {
     @POST("/rundotnet/api")
