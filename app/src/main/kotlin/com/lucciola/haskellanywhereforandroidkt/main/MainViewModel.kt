@@ -5,7 +5,6 @@ import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
 import android.content.Context
-import com.lucciola.haskellanywhereforandroidkt.data.Haskell
 import com.lucciola.haskellanywhereforandroidkt.data.source.HaskellRepository
 
 class MainViewModel (
@@ -24,6 +23,13 @@ class MainViewModel (
     }
 
     fun sendProgram(program: String) {
-        haskellRepository.getResult(program, programSentEvent::postValue)
+        haskellRepository.getResult(program) { haskell ->
+            programSentEvent.postValue(
+                    when (haskell.Result) {
+                        null -> Haskell(mode = Haskell.ERROR, message = haskell.Errors ?: "")
+                        else -> Haskell(mode = Haskell.SUCCESS, message = haskell.Result ?: "")
+                    }
+            )
+        }
     }
 }
