@@ -21,7 +21,7 @@ class HaskellRepository(
             override fun onFailure(call: Call<Haskell>?, t: Throwable) {
                 t.printStackTrace()
                 Log.d("haskell", "some error occurred: ${t::class.java} : ${t.message}")
-                onResult(Haskell())
+                onResult(Haskell(networkError = t.localizedMessage))
             }
         })
 

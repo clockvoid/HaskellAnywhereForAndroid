@@ -26,7 +26,10 @@ class MainViewModel (
         haskellRepository.getResult(program) { haskell ->
             programSentEvent.postValue(
                     when (haskell.Result) {
-                        null -> Haskell(mode = Haskell.ERROR, message = haskell.Errors ?: "")
+                        null -> when(haskell.networkError) {
+                            null -> Haskell(mode = Haskell.ERROR, message = haskell.Errors ?: "")
+                            else -> Haskell(mode = Haskell.NETWORK, message = haskell.networkError ?: "")
+                        }
                         else -> Haskell(mode = Haskell.SUCCESS, message = haskell.Result ?: "")
                     }
             )
