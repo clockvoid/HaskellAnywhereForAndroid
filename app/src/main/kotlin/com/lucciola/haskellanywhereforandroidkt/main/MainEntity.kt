@@ -7,5 +7,6 @@ data class Haskell (
     companion object {
         const val SUCCESS = 0
         const val ERROR = 1
+        const val NETWORK = 2
     }
 }
