@@ -9,5 +9,6 @@ data class Haskell @JvmOverloads constructor (
     @ColumnInfo(name = "Warnings") var Warnings: String? = null,
     @ColumnInfo(name = "Errors") var Errors: String? = null,
     @ColumnInfo(name = "Status") var Status: String? = null,
-    @ColumnInfo(name = "Files") var Files: String? = null
+    @ColumnInfo(name = "Files") var Files: String? = null,
+    @ColumnInfo(name = "networkError") var networkError: String? = null
 )
