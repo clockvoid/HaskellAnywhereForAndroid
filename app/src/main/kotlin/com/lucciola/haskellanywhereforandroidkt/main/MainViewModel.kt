@@ -15,6 +15,9 @@ class MainViewModel (
     internal val symbolButtonClickedEvent = MutableLiveData<String>()
     var programSentEvent = MutableLiveData<Haskell>()
 
+    private var functions: String = ""
+    private var mainFunction: String = ""
+
     @SuppressLint("StaticFieldLeak")
     private val context: Context = context.applicationContext
 
@@ -23,7 +26,13 @@ class MainViewModel (
     }
 
     fun sendProgram(program: String) {
-        haskellRepository.getResult(program) { haskell ->
+        when {
+            "^(print|putStrLn).*".toRegex().matches(program) -> mainFunction = "main = $program"
+            "^main = .*".toRegex().matches(program) -> mainFunction = program
+            "^.* = .*".toRegex().matches(program) -> functions += "$program\n"
+            else -> mainFunction = "main = print $program"
+        }
+        haskellRepository.getResult("$functions\n$mainFunction") { haskell ->
             programSentEvent.postValue(
                     when (haskell.Result) {
                         null -> when(haskell.networkError) {
