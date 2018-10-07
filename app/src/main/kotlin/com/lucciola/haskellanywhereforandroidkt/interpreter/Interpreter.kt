@@ -1,9 +1,11 @@
-package com.lucciola.haskellanywhereforandroidkt.interpretor
+package com.lucciola.haskellanywhereforandroidkt.interpreter
 
-interface Interpretor {
-    var functions: Map<Int, String>
+interface Interpreter {
+    var functions: MutableMap<Int, String>
     var mainFunction: String
-    var imports: Map<Int, String>
+    var imports: MutableMap<Int, String>
+    var currentId: Int
+    var tasks: MutableList<Task>
 
     // put is a function to interpret program and decide behavior.
     // this function returns ProgramID
