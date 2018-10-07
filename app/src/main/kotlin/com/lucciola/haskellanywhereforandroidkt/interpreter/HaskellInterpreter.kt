@@ -1,19 +1,21 @@
-package com.lucciola.haskellanywhereforandroidkt.interpretor
+package com.lucciola.haskellanywhereforandroidkt.interpreter
 
-class HaskellInterpretor: Interpretor {
-    override var functions: Map<Int, String> = HashMap()
-        private set
+object HaskellInterpreter: Interpreter {
+    override var functions: MutableMap<Int, String> = HashMap()
     override var mainFunction: String = ""
-        private  set
-    override var imports: Map<Int, String> = MutableMap()
-        private set
+    override var imports: MutableMap<Int, String> = HashMap()
+    override var currentId: Int = 0
+    override var tasks: MutableList<Task> = ArrayList()
 
-    override fun put(program: String): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun put(program: String): Int =
+            when {
+                "^(print|putStrLn).*".toRegex().matches(program) -> { mainFunction = "main = $program"; -1 }
+                "^main = .*".toRegex().matches(program) -> { mainFunction = program; -1 }
+                "^.* = .*".toRegex().matches(program) -> { functions[functions.size] = "$program\n"; functions.size }
+                else -> { mainFunction = "main = print $program"; -1 }
+            }
 
     override fun getResult(id: Int, status: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }
