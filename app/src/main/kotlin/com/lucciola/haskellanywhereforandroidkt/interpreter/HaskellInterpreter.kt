@@ -7,6 +7,11 @@ object HaskellInterpreter: Interpreter {
     override var imports: MutableMap<Int, String> = HashMap()
     override var currentId: Int = 0
     override var tasks: MutableMap<Int, (Int) -> Unit> = HashMap()
+    override val program: String
+        get() =
+            imports.values.toString().replace("([|])", "").replace(", ", "\n") +
+                    functions.values.toString().replace("([|])", "").replace(", ", "\n") +
+                    mainFunction
 
     private var counter: Int = 0
 
