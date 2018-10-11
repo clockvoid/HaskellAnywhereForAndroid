@@ -9,8 +9,8 @@ object HaskellInterpreter: Interpreter {
     override var tasks: MutableMap<Int, (Int) -> Unit> = HashMap()
     override val program: String
         get() =
-            imports.values.toString().replace("([|])", "").replace(", ", "\n") +
-                    functions.values.toString().replace("([|])", "").replace(", ", "\n") +
+            imports.values.toString().replace("(\\[|\\])".toRegex(), "").replace(", ", "\n") + "\n" +
+                    functions.values.toString().replace("(\\[|\\])".toRegex(), "").replace(", ", "\n") + "\n" +
                     mainFunction
 
     private var counter: Int = 0
