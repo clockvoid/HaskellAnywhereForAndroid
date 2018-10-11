@@ -5,7 +5,7 @@ interface Interpreter {
     var mainFunction: String
     var imports: MutableMap<Int, String>
     var currentId: Int
-    var tasks: MutableList<Task>
+    var tasks: MutableMap<Int, (Int) -> Unit>
 
     // put is a function to interpret program and decide behavior.
     // this function returns ProgramID
