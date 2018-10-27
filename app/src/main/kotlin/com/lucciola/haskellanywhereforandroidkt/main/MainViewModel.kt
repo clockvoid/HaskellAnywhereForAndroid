@@ -5,7 +5,9 @@ import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
 import android.content.Context
+import android.util.Log
 import com.lucciola.haskellanywhereforandroidkt.data.source.HaskellRepository
+import com.lucciola.haskellanywhereforandroidkt.interpreter.HaskellInterpreter
 
 class MainViewModel (
         context: Application,
@@ -15,9 +17,6 @@ class MainViewModel (
     internal val symbolButtonClickedEvent = MutableLiveData<String>()
     var programSentEvent = MutableLiveData<Haskell>()
 
-    private var functions: String = ""
-    private var mainFunction: String = ""
-
     @SuppressLint("StaticFieldLeak")
     private val context: Context = context.applicationContext
 
@@ -26,20 +25,25 @@ class MainViewModel (
     }
 
     fun sendProgram(program: String) {
-        when {
-            "^(print|putStrLn).*".toRegex().matches(program) -> mainFunction = "main = $program"
-            "^main = .*".toRegex().matches(program) -> mainFunction = program
-            "^.* = .*".toRegex().matches(program) -> functions += "$program\n"
-            else -> mainFunction = "main = print $program"
-        }
-        haskellRepository.getResult("$functions\n$mainFunction") { haskell ->
+        val id = HaskellInterpreter.put(program)
+        Log.i("PROGRAM", HaskellInterpreter.program)
+        haskellRepository.getResult(HaskellInterpreter.program) { haskell ->
             programSentEvent.postValue(
                     when (haskell.Result) {
                         null -> when(haskell.networkError) {
-                            null -> Haskell(mode = Haskell.ERROR, message = haskell.Errors ?: "")
-                            else -> Haskell(mode = Haskell.NETWORK, message = haskell.networkError ?: "")
+                            null -> {
+                                HaskellInterpreter.getResult(id, HaskellInterpreter.FAIL)
+                                Haskell(mode = Haskell.ERROR, message = haskell.Errors ?: "")
+                            }
+                            else -> {
+                                HaskellInterpreter.getResult(id, HaskellInterpreter.FAIL)
+                                Haskell(mode = Haskell.NETWORK, message = haskell.networkError ?: "")
+                            }
                         }
-                        else -> Haskell(mode = Haskell.SUCCESS, message = haskell.Result ?: "")
+                        else -> {
+                            HaskellInterpreter.getResult(id, HaskellInterpreter.SUCCESS)
+                            Haskell(mode = Haskell.SUCCESS, message = haskell.Result ?: "")
+                        }
                     }
             )
         }
