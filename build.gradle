@@ -9,6 +9,7 @@ ext {
     okhttpVersion = '3.10.0'
     moshiVersion = '1.5.0'
     kotlinCoroutineVersion = '0.24.0'
+    flipperVersion = '0.13.0'
 }
 
 buildscript {
