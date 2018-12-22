@@ -12,6 +12,8 @@ import com.facebook.soloader.SoLoader
 import com.lucciola.haskellanywhereforandroidkt.BuildConfig
 
 class HaskellAnywhere : Application() {
+    val networkFlipperPlugin = NetworkFlipperPlugin()
+
     override fun onCreate() {
         super.onCreate()
         SoLoader.init(this, false)
@@ -23,7 +25,7 @@ class HaskellAnywhere : Application() {
 
         client?.apply {
             addPlugin(InspectorFlipperPlugin(this@HaskellAnywhere, DescriptorMapping.withDefaults()))
-            addPlugin(NetworkFlipperPlugin())
+            addPlugin(networkFlipperPlugin)
             start()
             Log.d("Application class: HaskellAnywhere", "initialized")
         }
