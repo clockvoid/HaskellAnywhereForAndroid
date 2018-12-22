@@ -22,7 +22,7 @@ class HaskellRemoteDataSource(
     private val haskellService: HaskellService by lazy { createService() }
 
     private fun createService(): HaskellService {
-        val apiUrl = "http://rextester.com/"
+        val apiUrl = "https://rextester.com/"
         val client = buildHttpClient()
         val moshi = Moshi.Builder()
                 .add(KotlinJsonAdapterFactory())
@@ -41,7 +41,7 @@ class HaskellRemoteDataSource(
                 client.addInterceptor { chain ->
                     val original = chain.request()
                     val request = with(original.newBuilder()){
-                        header("Access-Control-Allow-Origin", "http://rextester.com")
+                        header("Access-Control-Allow-Origin", "https://rextester.com")
                         method(original.method(), original.body())
                     }.build()
                     chain.proceed(request)
