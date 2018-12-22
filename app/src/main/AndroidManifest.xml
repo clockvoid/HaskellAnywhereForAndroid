@@ -4,7 +4,9 @@
     package="com.lucciola.haskellanywhereforandroidkt">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <application
+        android:name=".main.HaskellAnywhere"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_my_launcher"
@@ -19,6 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.facebook.flipper.android.diagnostics.FlipperDiagnosticActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
