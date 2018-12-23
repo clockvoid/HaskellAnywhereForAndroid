@@ -25,8 +25,8 @@ class ConsoleFragment : Fragment() {
                     input.setSelection(input.text.length)
                 })
                 programSentEvent.observe(this@ConsoleFragment, Observer { haskell ->
-                    Log.d("haskell", haskell?.message)
-                    monitor.text = (monitor.text.toString() + (haskell?.message) + "\n")
+                    Log.d("haskell", haskell?.result)
+                    monitor.text = (monitor.text.toString() + (haskell?.result) + "\n")
                     monitorScrollView.post {
                         monitorScrollView.fullScroll(ScrollView.FOCUS_DOWN)
                     }

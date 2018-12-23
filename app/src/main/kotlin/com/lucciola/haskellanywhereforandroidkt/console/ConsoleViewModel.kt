@@ -34,16 +34,16 @@ class ConsoleViewModel (
                         null -> when(haskell.networkError) {
                             null -> {
                                 HaskellInterpreter.getResult(id, HaskellInterpreter.FAIL)
-                                Haskell(mode = Haskell.ERROR, message = haskell.Errors ?: "")
+                                Haskell(mode = Haskell.ERROR, program = program, result = haskell.Errors ?: "")
                             }
                             else -> {
                                 HaskellInterpreter.getResult(id, HaskellInterpreter.FAIL)
-                                Haskell(mode = Haskell.NETWORK, message = haskell.networkError ?: "")
+                                Haskell(mode = Haskell.NETWORK, program = program, result = haskell.networkError ?: "")
                             }
                         }
                         else -> {
                             HaskellInterpreter.getResult(id, HaskellInterpreter.SUCCESS)
-                            Haskell(mode = Haskell.SUCCESS, message = haskell.Result ?: "")
+                            Haskell(mode = Haskell.SUCCESS, program = program, result = haskell.Result ?: "")
                         }
                     }
             )
