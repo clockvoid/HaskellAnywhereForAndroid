@@ -8,6 +8,7 @@ import android.content.Context
 import android.util.Log
 import com.lucciola.haskellanywhereforandroidkt.data.source.HaskellRepository
 import com.lucciola.haskellanywhereforandroidkt.interpreter.HaskellInterpreter
+import com.lucciola.haskellanywhereforandroidkt.console.Entity.Haskell
 
 class ConsoleViewModel (
         context: Application,
