@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -40,6 +41,7 @@ class ConsoleFragment : Fragment() {
                     consoleAdapter.notifyDataSetChanged()
                 }
                 send_button.isEnabled = true
+                console.smoothScrollToPosition(consoleAdapter.itemCount)
             })
         }
     }
@@ -48,11 +50,10 @@ class ConsoleFragment : Fragment() {
         val binding: ConsoleFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.console_fragment, container, false)
         val view = binding.root
         val consoleRecyclerView  = view.findViewById<RecyclerView>(R.id.console)
+        consoleRecyclerView.adapter = consoleAdapter
 
         binding.setLifecycleOwner(this@ConsoleFragment)
         binding.viewmodel = viewModel
-
-        consoleRecyclerView.adapter = consoleAdapter
 
         view.send_button.setOnClickListener {
             Log.d("haskell", "program sent!")
@@ -65,6 +66,7 @@ class ConsoleFragment : Fragment() {
                     result = ""
             ))
             consoleAdapter.notifyDataSetChanged()
+            console.smoothScrollToPosition(consoleAdapter.itemCount)
             viewModel.sendProgram(program)
         }
 
