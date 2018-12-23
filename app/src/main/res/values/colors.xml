@@ -6,4 +6,10 @@
     <color name="colorAccent">#FFE040FB</color>
     <color name="button_ripple_color">#33FFFFFF</color>
     <color name="colorPrimaryText">#FFF5F5F5</color>
+    <color name="green">#4caf50</color>
+    <color name="greenLight">#80e27e</color>
+    <color name="greenDark">#087f23</color>
+    <color name="red">#f50057</color>
+    <color name="redLight">#ff5983</color>
+    <color name="redDark">#bb002f</color>
 </resources>
