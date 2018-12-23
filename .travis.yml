@@ -25,10 +25,9 @@ deploy:
   provider: releases
   api_key:
     secure: CKtsOxR3kWc6VopScw136okZUMcVBKtYIilYcun3cIxoQ3e+AkKzVZabzZpdxdOyHdednqwzadg2z5K5c4vbwGHEtR5F7iYEmyBPqpRk0bY9GKi69r6R5MQNiYVL6RffsWSHqBgwNasnyzN/f51kWdaj26d2AMqm38o0eGRsSw4+sOiIX2lKy2UFE5sgU/uxwPpS+ShPYCBGWWmb1Tm+sbtNueouuqWlyh0W4+OAKeRfQ+pVID89t+tEluccgLmiPOO3g16a4N3NS9+XTek4w9ffbN5PKwQGeTOtgY0kHOmrhaJO/xK0mPhumsT67jF7fk7gXdPARHAYZQU/NlKdMD23S3IaKTuwUmb40tIs6UNXjjoCzcOMHh5Q4u919udyA5nXnc89Yppyi+teGBRNNm1KV5BBFBgvmkU8l56rrRdxW7U3E0iGNhSPz/FFojmV9JAxZSg/kVhqS09n/I+fxMDF6zHcSQsjIGVxDSW0OpmhQWEQ3uPSqYUp5nN15OYJOYLwliLPijjon2KgGHbSYJC/9LQbThDMuNcEYvtMYAIxZLHeYcJYx35ZRk9i4pQyIxAuj8yEohp+ZFC2o2gttPUowTsnkbOYW9HWfyYodlwoIPyaXoiMiwf+82rJ3O+8nuZs5FqhUC9l8yRjr907s1wTWT1UC7AIHBlx7oVn3X4=
-  file: HaskellAnywhereForAndroid/build/outputs/apk/HaskellAnywhereForAndroid*release*.apk
+  file: /home/travis/build/clockvoid/HaskellAnywhereForAndroid/app/build/outputs/apk/debug/*.apk
   file_glob: "true"
   skip_cleanup: true
   on:
-    all_branches: true
     tags: true
     repo: clockvoid/HaskellAnywhereForAndroid
