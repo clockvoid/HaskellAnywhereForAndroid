@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.lucciola.haskellanywhereforandroidkt.console.ConsoleFragment" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.lucciola.haskellanywhereforandroidkt.console.ConsoleFragment">
     <data>
         <import type="android.view.View" />
         <import type="com.lucciola.haskellanywhereforandroidkt.R" />
@@ -19,13 +19,10 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/console"
-            style="@style/Console"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:padding="16dp"
-            android:text="@string/test_text"
-            android:textSize="20sp" />
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,7 +72,7 @@
                     tools:ignore="LabelFor,AutoFill" />
 
                 <ImageButton
-                    android:id="@+id/send"
+                    android:id="@+id/send_button"
                     android:layout_width="48dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="bottom"
