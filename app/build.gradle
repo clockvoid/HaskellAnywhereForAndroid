@@ -42,6 +42,7 @@ dependencies {
     annotationProcessor "org.jetbrains.kotlin:kotlin-compiler-embeddable:$kotlin_version"
     implementation "com.android.support:support-v4:$supportLibraryVersion"
     implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$constraintVersion"
     implementation "android.arch.lifecycle:extensions:$archLifecycleVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$archLifecycleVersion"
