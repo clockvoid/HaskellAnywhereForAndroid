@@ -1,4 +1,4 @@
-package com.lucciola.haskellanywhereforandroidkt.main
+package com.lucciola.haskellanywhereforandroidkt.application
 
 import android.app.Application
 import android.util.Log

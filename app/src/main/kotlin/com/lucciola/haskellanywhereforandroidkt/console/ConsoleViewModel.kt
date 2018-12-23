@@ -1,4 +1,4 @@
-package com.lucciola.haskellanywhereforandroidkt.main
+package com.lucciola.haskellanywhereforandroidkt.console
 
 import android.annotation.SuppressLint
 import android.app.Application
@@ -9,7 +9,7 @@ import android.util.Log
 import com.lucciola.haskellanywhereforandroidkt.data.source.HaskellRepository
 import com.lucciola.haskellanywhereforandroidkt.interpreter.HaskellInterpreter
 
-class MainViewModel (
+class ConsoleViewModel (
         context: Application,
         private val haskellRepository: HaskellRepository
 ) : AndroidViewModel(context) {

@@ -1,4 +1,4 @@
-package com.lucciola.haskellanywhereforandroidkt.main
+package com.lucciola.haskellanywhereforandroidkt.console
 
 import android.arch.lifecycle.Observer
 import android.os.Bundle
@@ -11,20 +11,20 @@ import android.widget.ScrollView
 import com.lucciola.haskellanywhereforandroidkt.databinding.MainFragBinding
 import com.lucciola.haskellanywhereforandroidkt.util.obtainViewModel
 
-import kotlinx.android.synthetic.main.main_frag.*
+import kotlinx.android.synthetic.main.console_fragment.*
 
-class MainFragment : Fragment() {
+class ConsoleFragment : Fragment() {
 
     private lateinit var viewDataBinding: MainFragBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewDataBinding = MainFragBinding.inflate(inflater, container, false).apply {
-            viewmodel = (activity as MainActivity).obtainViewModel(MainViewModel::class.java).apply {
-                symbolButtonClickedEvent.observe(this@MainFragment, Observer { symbol ->
+            viewmodel = (activity as ConsoleActivity).obtainViewModel(ConsoleViewModel::class.java).apply {
+                symbolButtonClickedEvent.observe(this@ConsoleFragment, Observer { symbol ->
                     input.text.append(symbol)
                     input.setSelection(input.text.length)
                 })
-                programSentEvent.observe(this@MainFragment, Observer { haskell ->
+                programSentEvent.observe(this@ConsoleFragment, Observer { haskell ->
                     Log.d("haskell", haskell?.message)
                     monitor.text = (monitor.text.toString() + (haskell?.message) + "\n")
                     monitorScrollView.post {
@@ -46,6 +46,6 @@ class MainFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = ConsoleFragment()
     }
 }

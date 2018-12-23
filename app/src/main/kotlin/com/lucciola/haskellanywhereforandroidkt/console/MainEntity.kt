@@ -1,4 +1,4 @@
-package com.lucciola.haskellanywhereforandroidkt.main
+package com.lucciola.haskellanywhereforandroidkt.console
 
 data class Haskell (
         val mode: Int,

@@ -7,7 +7,7 @@ import android.arch.lifecycle.ViewModelProvider
 import android.support.annotation.VisibleForTesting
 
 import com.lucciola.haskellanywhereforandroidkt.data.source.HaskellRepository
-import com.lucciola.haskellanywhereforandroidkt.main.MainViewModel
+import com.lucciola.haskellanywhereforandroidkt.console.ConsoleViewModel
 
 class ViewModelFactory private constructor(
         private val application: Application,
@@ -18,8 +18,8 @@ class ViewModelFactory private constructor(
     override fun <T: ViewModel> create(modelClass: Class<T>) =
             with(modelClass) {
                 when {
-                    isAssignableFrom(MainViewModel::class.java) ->
-                        MainViewModel(application, haskellRepository)
+                    isAssignableFrom(ConsoleViewModel::class.java) ->
+                        ConsoleViewModel(application, haskellRepository)
                     else ->
                         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
                 }

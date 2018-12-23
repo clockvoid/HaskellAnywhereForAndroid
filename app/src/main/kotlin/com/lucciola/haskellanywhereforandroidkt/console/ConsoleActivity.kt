@@ -1,4 +1,4 @@
-package com.lucciola.haskellanywhereforandroidkt.main
+package com.lucciola.haskellanywhereforandroidkt.console
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -6,16 +6,16 @@ import com.lucciola.haskellanywhereforandroidkt.R
 import com.lucciola.haskellanywhereforandroidkt.util.obtainViewModel
 import com.lucciola.haskellanywhereforandroidkt.util.replaceFragmentInActivity
 
-import kotlinx.android.synthetic.main.main_act.*
+import kotlinx.android.synthetic.main.console_activity.*
 
-class MainActivity : AppCompatActivity() {
+class ConsoleActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: ConsoleViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.main_act)
+        setContentView(R.layout.console_activity)
 
         setupViewFragment()
 
@@ -25,8 +25,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViewFragment() {
-        replaceFragmentInActivity(MainFragment.newInstance(), content_frame.id)
+        replaceFragmentInActivity(ConsoleFragment.newInstance(), content_frame.id)
     }
 
-    private fun obtainViewModel(): MainViewModel = obtainViewModel(MainViewModel::class.java)
+    private fun obtainViewModel(): ConsoleViewModel = obtainViewModel(ConsoleViewModel::class.java)
 }

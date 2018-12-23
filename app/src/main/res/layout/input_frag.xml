@@ -8,7 +8,7 @@
 
         <variable
             name="viewmodel"
-            type="com.lucciola.haskellanywhereforandroidkt.main.MainViewModel" />
+            type="com.lucciola.haskellanywhereforandroidkt.console.ConsoleViewModel" />
     </data>
 
     <LinearLayout

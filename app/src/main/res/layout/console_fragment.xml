@@ -2,15 +2,14 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.lucciola.haskellanywhereforandroidkt.main.MainFragment" >
+    tools:context="com.lucciola.haskellanywhereforandroidkt.console.ConsoleFragment" >
     <data>
         <import type="android.view.View" />
-
         <import type="com.lucciola.haskellanywhereforandroidkt.R" />
 
         <variable
             name="viewmodel"
-            type="com.lucciola.haskellanywhereforandroidkt.main.MainViewModel" />
+            type="com.lucciola.haskellanywhereforandroidkt.console.ConsoleViewModel" />
     </data>
 
     <LinearLayout
@@ -18,26 +17,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
-        <ScrollView
-            android:id="@+id/monitor_scroll_view"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/console"
+            style="@style/Console"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:gravity="center_vertical"
-            tools:ignore="ScrollViewCount,UselessParent">
-
-            <TextView
-                android:id="@+id/monitor"
-                style="@style/Console"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top"
-                android:isScrollContainer="true"
-                android:padding="16dp"
-                android:text="@string/test_text"
-                android:textSize="20sp" />
-
-        </ScrollView>
+            android:padding="16dp"
+            android:text="@string/test_text"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,7 +72,7 @@
                     android:maxLines="5"
                     android:minLines="1"
                     android:inputType="textMultiLine"
-                    tools:ignore="LabelFor" />
+                    tools:ignore="LabelFor,AutoFill" />
 
                 <ImageButton
                     android:id="@+id/send"
