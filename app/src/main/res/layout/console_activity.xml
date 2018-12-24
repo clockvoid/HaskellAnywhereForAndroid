@@ -17,7 +17,8 @@
         android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/MyActionBarTheme"
-        app:popupTheme="@style/MyActionBarTheme" />
+        app:popupTheme="@style/MyActionBarTheme"
+        app:title="Haskell" />
 
     <FrameLayout
             android:id="@+id/content_frame"
