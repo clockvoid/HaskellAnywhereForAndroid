@@ -2,7 +2,6 @@ package com.lucciola.haskellanywhereforandroidkt.data.source.remote
 
 import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
 import com.lucciola.haskellanywhereforandroidkt.BuildConfig
 import com.lucciola.haskellanywhereforandroidkt.apiservice.HaskellService
 import com.lucciola.haskellanywhereforandroidkt.data.Haskell
@@ -30,7 +29,6 @@ class HaskellRemoteDataSource(
         val retrofit = Retrofit.Builder()
                 .baseUrl(apiUrl)
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
-                .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .client(client)
                 .build()
         return retrofit.create(HaskellService::class.java)
