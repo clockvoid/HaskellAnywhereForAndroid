@@ -21,7 +21,7 @@ object HaskellInterpreter: Interpreter {
     override fun put(program: String): Int {
         tasks[counter] = when {
             "^(print|putStrLn).*".toRegex().matches(program) -> {
-                mainFunction = "main = $program"
+                mainFunction = "main = $ $program"
                 { _: Int -> }
             }
             "^main = .*".toRegex().matches(program) -> {
@@ -37,7 +37,7 @@ object HaskellInterpreter: Interpreter {
                 { it: Int -> this@HaskellInterpreter.functions.remove(it) }
             }
             else -> {
-                mainFunction = "main = print $program"
+                mainFunction = "main = print $ $program"
                 { _: Int -> }
             }
         }
