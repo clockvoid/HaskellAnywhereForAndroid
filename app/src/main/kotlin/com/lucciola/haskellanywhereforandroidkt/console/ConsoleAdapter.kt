@@ -41,7 +41,7 @@ class ConsoleAdapter(
                         ContextCompat.getColor(context, R.color.green),
                         android.graphics.PorterDuff.Mode.SRC_IN
                 )
-                holder.binding.program.visibility = View.GONE
+                holder.binding.progress.visibility = View.GONE
             }
             else -> { //something failure
                 holder.binding.status.setImageResource(R.drawable.clear)
