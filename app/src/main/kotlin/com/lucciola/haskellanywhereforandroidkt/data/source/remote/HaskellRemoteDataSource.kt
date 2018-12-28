@@ -3,7 +3,6 @@ package com.lucciola.haskellanywhereforandroidkt.data.source.remote
 import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.lucciola.haskellanywhereforandroidkt.BuildConfig
-import com.lucciola.haskellanywhereforandroidkt.apiservice.HaskellService
 import com.lucciola.haskellanywhereforandroidkt.data.Haskell
 import com.lucciola.haskellanywhereforandroidkt.data.source.HaskellDataSource
 import com.lucciola.haskellanywhereforandroidkt.data.source.HaskellRepository

@@ -1,4 +1,4 @@
-package com.lucciola.haskellanywhereforandroidkt.apiservice
+package com.lucciola.haskellanywhereforandroidkt.data.source.remote
 
 import com.lucciola.haskellanywhereforandroidkt.data.Haskell
 import retrofit2.Call
