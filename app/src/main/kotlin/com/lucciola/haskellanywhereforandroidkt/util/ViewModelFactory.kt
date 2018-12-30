@@ -8,6 +8,7 @@ import android.support.annotation.VisibleForTesting
 
 import com.lucciola.haskellanywhereforandroidkt.data.source.HaskellRepository
 import com.lucciola.haskellanywhereforandroidkt.console.ConsoleViewModel
+import com.lucciola.haskellanywhereforandroidkt.prelude.PreludeViewModel
 
 class ViewModelFactory private constructor(
         private val application: Application,
@@ -20,6 +21,8 @@ class ViewModelFactory private constructor(
                 when {
                     isAssignableFrom(ConsoleViewModel::class.java) ->
                         ConsoleViewModel(application, haskellRepository)
+                    isAssignableFrom(PreludeViewModel::class.java) ->
+                        PreludeViewModel(application, haskellRepository)
                     else ->
                         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
                 }
