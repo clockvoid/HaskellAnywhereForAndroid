@@ -3,7 +3,7 @@
 
 A Simple Haskell interpreter for Android
 
-[![Imgur](http://i.imgur.com/90KdDuCm.png, "Screenshot")](http://i.imgur.com/90KdDuC.png)
+[![Imgur](http://i.imgur.com/90KdDuCm.png, "Screenshot")](https://i.imgur.com/ooHP4Pxm.png)
 
 ## Description
 Androidで動作するHaskell Interpreterを目指しています．
