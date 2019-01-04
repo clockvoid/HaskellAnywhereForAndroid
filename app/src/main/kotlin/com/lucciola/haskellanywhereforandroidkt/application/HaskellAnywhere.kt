@@ -12,14 +12,21 @@ import com.facebook.soloader.SoLoader
 import com.lucciola.haskellanywhereforandroidkt.BuildConfig
 
 class HaskellAnywhere : Application() {
-    val networkFlipperPlugin = NetworkFlipperPlugin()
+    val networkFlipperPlugin: NetworkFlipperPlugin? =
+            when (BuildConfig.DEBUG) {
+                true -> NetworkFlipperPlugin()
+                false -> null
+            }
 
     override fun onCreate() {
         super.onCreate()
-        SoLoader.init(this, false)
+
         val client: FlipperClient? =
                 when (BuildConfig.DEBUG && FlipperUtils.shouldEnableFlipper(this)) {
-                    true -> AndroidFlipperClient.getInstance(this)
+                    true -> {
+                        SoLoader.init(this, false)
+                        AndroidFlipperClient.getInstance(this)
+                    }
                     else -> null
                 }
 

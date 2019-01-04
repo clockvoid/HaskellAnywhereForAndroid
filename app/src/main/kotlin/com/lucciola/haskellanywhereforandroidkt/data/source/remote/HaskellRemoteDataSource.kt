@@ -15,7 +15,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 class HaskellRemoteDataSource(
-        val networkFlipperPlugin: NetworkFlipperPlugin
+        val networkFlipperPlugin: NetworkFlipperPlugin?
 ) : HaskellDataSource {
     private val haskellService: HaskellService by lazy { createService() }
 
@@ -58,7 +58,7 @@ class HaskellRemoteDataSource(
     companion object {
         private var INSTANCE: HaskellRemoteDataSource? = null
 
-        @JvmStatic fun getInstance(networkFlipperPlugin: NetworkFlipperPlugin) =
+        @JvmStatic fun getInstance(networkFlipperPlugin: NetworkFlipperPlugin?) =
                 INSTANCE ?: synchronized(HaskellRepository::class.java) {
                     INSTANCE ?: HaskellRemoteDataSource(networkFlipperPlugin = networkFlipperPlugin)
                             .also { INSTANCE = it }
