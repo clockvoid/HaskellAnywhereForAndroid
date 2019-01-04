@@ -64,7 +64,7 @@ dependencies {
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0'
 
     // Flipper
-    debugImplementation "com.facebook.flipper:flipper:$flipperVersion"
+    implementation "com.facebook.flipper:flipper:$flipperVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
