@@ -47,6 +47,7 @@ class ConsoleFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         val binding: ConsoleFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.console_fragment, container, false)
         val view = binding.root
         val consoleRecyclerView  = view.findViewById<RecyclerView>(R.id.console)
