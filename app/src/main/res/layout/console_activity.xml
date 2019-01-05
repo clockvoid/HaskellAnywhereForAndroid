@@ -8,7 +8,8 @@
     android:clipToPadding="false"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context="com.lucciola.haskellanywhereforandroidkt.console.ConsoleActivity" >
+    tools:context="com.lucciola.haskellanywhereforandroidkt.console.ConsoleActivity"
+    >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -18,11 +19,13 @@
         android:elevation="4dp"
         android:theme="@style/MyActionBarTheme"
         app:popupTheme="@style/MyActionBarTheme"
-        app:title="Haskell" />
+        app:title="Haskell"
+        />
 
     <FrameLayout
-            android:id="@+id/content_frame"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
 </LinearLayout>
