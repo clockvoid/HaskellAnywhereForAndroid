@@ -20,7 +20,6 @@
         android:elevation="4dp"
         android:theme="@style/MyActionBarTheme"
         app:popupTheme="@style/MyActionBarTheme"
-        app:title="Prelude"
         />
 
     <fragment
