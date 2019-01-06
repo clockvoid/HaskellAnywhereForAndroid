@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".application.MainActivity"
+    >
 
     <!-- "Mark Favorite", should appear as action button if possible -->
     <!--item
@@ -11,10 +14,11 @@
         app:showAsAction="ifRoom"/-->
 
     <item
-        android:id="@+id/action_save"
+        android:id="@id/action_console_to_prelude"
         android:icon="@drawable/ic_save_black_48dp_tinted"
         android:title="@string/action_save"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        />
 
     <!-- Settings, should always be in the overflow -->
     <!--item android:id="@+id/action_settings"
