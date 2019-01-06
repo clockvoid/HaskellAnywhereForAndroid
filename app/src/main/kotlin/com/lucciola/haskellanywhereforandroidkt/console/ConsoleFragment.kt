@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.console_fragment.view.*
 class ConsoleFragment : Fragment() {
 
     private val viewModel: ConsoleViewModel by lazy {
-        obtainViewModel()
+        obtainViewModel(ConsoleViewModel::class.java)
     }
     private val haskellData = mutableListOf<Entity.Haskell>()
     private val consoleAdapter: RecyclerView.Adapter<ConsoleAdapter.ViewHolder> by lazy {
@@ -73,8 +73,6 @@ class ConsoleFragment : Fragment() {
 
         return view
     }
-
-    private fun obtainViewModel(): ConsoleViewModel = obtainViewModel(ConsoleViewModel::class.java)
 
     companion object {
         fun newInstance() = ConsoleFragment()

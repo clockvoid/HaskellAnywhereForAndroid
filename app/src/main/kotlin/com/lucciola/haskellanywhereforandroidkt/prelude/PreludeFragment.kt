@@ -13,7 +13,7 @@ import com.lucciola.haskellanywhereforandroidkt.util.obtainViewModel
 class PreludeFragment : Fragment() {
 
     private val viewModel: PreludeViewModel by lazy {
-        (activity as PreludeActivity).obtainViewModel(PreludeViewModel::class.java)
+        obtainViewModel(PreludeViewModel::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
