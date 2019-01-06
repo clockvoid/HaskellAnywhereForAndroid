@@ -4,7 +4,6 @@ import android.arch.lifecycle.Observer
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -20,7 +19,7 @@ import kotlinx.android.synthetic.main.console_fragment.view.*
 class ConsoleFragment : Fragment() {
 
     private val viewModel: ConsoleViewModel by lazy {
-        (activity as ConsoleActivity).obtainViewModel(ConsoleViewModel::class.java)
+        obtainViewModel()
     }
     private val haskellData = mutableListOf<Entity.Haskell>()
     private val consoleAdapter: RecyclerView.Adapter<ConsoleAdapter.ViewHolder> by lazy {
@@ -29,6 +28,7 @@ class ConsoleFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("consoleFragment", "onCreate()")
         viewModel.apply {
             symbolButtonClickedEvent.observe(this@ConsoleFragment, Observer { symbol ->
                 input.text.append(symbol)
@@ -73,6 +73,8 @@ class ConsoleFragment : Fragment() {
 
         return view
     }
+
+    private fun obtainViewModel(): ConsoleViewModel = obtainViewModel(ConsoleViewModel::class.java)
 
     companion object {
         fun newInstance() = ConsoleFragment()
