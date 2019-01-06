@@ -5,10 +5,14 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.onNavDestinationSelected
 import com.lucciola.haskellanywhereforandroidkt.R
 import com.lucciola.haskellanywhereforandroidkt.console.Entity.Haskell.Companion.RUNNING
 import com.lucciola.haskellanywhereforandroidkt.databinding.ConsoleFragmentBinding
@@ -51,10 +55,18 @@ class ConsoleFragment : Fragment() {
         val binding: ConsoleFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.console_fragment, container, false)
         val view = binding.root
         val consoleRecyclerView  = view.findViewById<RecyclerView>(R.id.console)
+        val toolbar: Toolbar = activity?.findViewById(R.id.toolbar)!!
         consoleRecyclerView.adapter = consoleAdapter
 
         binding.setLifecycleOwner(this@ConsoleFragment)
         binding.viewmodel = viewModel
+
+        toolbar.menu.clear()
+        toolbar.inflateMenu(R.menu.console_menu)
+        toolbar.setOnMenuItemClickListener { item ->
+            val navController = activity?.findNavController(R.id.nav_host_fragment)!!
+            item.onNavDestinationSelected(navController)
+        }
 
         view.send_button.setOnClickListener {
             Log.d("haskell", "program sent!")
