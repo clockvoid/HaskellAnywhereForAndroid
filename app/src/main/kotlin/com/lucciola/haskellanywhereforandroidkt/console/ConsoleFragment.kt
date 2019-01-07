@@ -11,7 +11,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
 import com.lucciola.haskellanywhereforandroidkt.R
 import com.lucciola.haskellanywhereforandroidkt.console.Entity.Haskell.Companion.RUNNING
