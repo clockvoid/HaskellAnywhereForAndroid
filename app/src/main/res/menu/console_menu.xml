@@ -13,7 +13,7 @@
 
     <item
         android:id="@id/action_console_to_prelude"
-        android:icon="@drawable/ic_save_black_48dp_tinted"
+        android:icon="@drawable/save_icon"
         android:title="@string/action_save"
         app:showAsAction="ifRoom"
         />
