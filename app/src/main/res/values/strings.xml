@@ -36,4 +36,5 @@
     <string name="down_button">down button</string>
     <string name="up_button">up button</string>
     <string name="send_button">send button</string>
+    <string name="action_filter">filter</string>
 </resources>
